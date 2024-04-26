@@ -1,0 +1,70 @@
+**** 스크립트에서 html요소로 접근하기
+
+** document : 내장 객체 - 문서 - 실행하면 body태그에 코딩된 html요소들이 
+	document객체의 하위 객체로 변환
+	실행된 문서를 document라고 함
+
+-- id 이름을 이용한 접근
+document.getElementById('id이름');
+
+document.getElementById('id');
+document.getElementById('name');
+document.getElementById('email');
+document.getElementById('tel');
+
+document.querySelector('#id');
+document.querySelector('#name');
+document.querySelector('#email');
+
+-- class이름을 이용한 접근
+변수list = document.getElementByClassName('txt');
+변수 = document.querySelector('.txt');
+
+변수list = document.querySelectorAll('.txt');
+
+-- tag이름을 이용한 접근
+변수list = document.getElementVtTagName('input')
+변수list = document.querySelectorAll('input');
+변수 = document.querySelector('input');
+
+
+-- (form) name이름을 이용한 접근
+document.form이름.name
+변수 =document.ff.id
+변수 =document.ff.name
+변수 =document.ff.tel
+
+****해당요소에서 값을 가져온다 - get  **********************************
+요소(변수).innerHTML	--input이 아닌 요소	- div, td, a, span, p
+요소(변수).innerText	--input이 아닌 요소	- div, td, a, span, p
+요소(변수).value		--input요소
+
+****해당요소에서 값을 출력한다 (변경한다) - set  **********************************
+요소(변수).innerHTML = 값	--input이 아닌 요소	- div, td, a, span, p
+요소(변수).innerText = 값	--input이 아닌 요소	- div, td, a, span, p
+요소(변수).value = 값		--input요소
+
+----------------------------------------------------------------------------
+******* 변수
+
+var	 : 중복 선언
+let	 : 중복 선언 불가
+const: 중복 선언 불가, 반드시 초기값이 할당, 값 변경 불가(상수)
+
+
+
+************es6 표준 number *****************
+
+Ecma Script : javascript의 표준을 정한다
+es2
+es4
+es6(2015) - 기반으로 코딩
+	document.querySelector
+	let
+	const
+	백틱을 이용한 문자열만들기 (templet문자열)
+		`문자열 문자열 ${변수} 문자열`
+		
+	'문자열 문자열'+변수+'문자열'
+	
+es8

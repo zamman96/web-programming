@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>post</title>
+<style>
+form{
+	border : 1px dotted green;
+	margin: 10px auto;
+	padding: 10px;
+	
+	width: 50%
+}
+
+span{
+	display : inline-block; /*block 블럭 요소로 변경*/
+	width: 70px;
+	height: 30px;
+}
+</style>
+</head>
+<body>
+
+<form action="post.jsp" method="post">	<!-- 제출 시 action으로감-->
+<span>아이디</span> 
+<input type="text" id="" name="id"> <br>
+
+<span>이름</span> 
+<input type="text" id="" name="name"> <br>
+
+<span>비밀번호</span> 
+<input type="password" id="" name="pass"> <br>
+
+<input type="hidden" name="pcode" value="1234">
+<br>
+<input type="submit" value="로그인">
+<input type="reset">
+</form>
+
+</body>
+</html>

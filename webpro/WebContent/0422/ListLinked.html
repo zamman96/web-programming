@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+pre{
+	background-color : rgb(205,198,210);
+	border : 5px double blue;
+	padding : 10px;
+	margin : 5px;
+	font-size : 1.5rem;
+	
+	border-left : none;
+	border-right : none;
+}
+
+a{
+	border : 2px solid pink;
+	margin : 5px;
+	padding : 5px;
+	letter-spacing: 20px/*글자사이간격*/;
+	text-decoration: none; /*언더바 삭제*/
+}
+#u1 li, #o1 li{
+/* 	border : 1px solid green; */
+	margin : 5px;
+
+}
+
+#u1 a, #o1 a, #u3 a{
+	padding : 0px;
+	border : none;
+	letter-spacing: 10px;
+}
+
+div{
+	border : 2px solid blue;
+	padding : 20px;
+	width : 20%;
+	margin : 20px;
+ 	float : left; 
+}
+</style>
+
+</head>
+<body>
+<pre>
+스타일에서 요소를 선택 시
+- 자식을 선택하는 방법 > #u1 > li, #u1 > li > a
+- 후손(자식, 손자 등)을 선택하는 방법   #u1 a	/	#u1 li
+
+</pre>
+
+<p> a 태그 : 하이퍼링크. a링크, 링크 </p>
+<p>문서를 이동하고자 하는 목적</p>
+<a href="http://www.naver.com" target="_blank">네이버</a>
+<a href="http://www.daum.net" target="_parent">다음</a>
+<a href="http://www.w3schools.com" target="_top">w3schools</a>
+<a href="http://www.google.com">구글</a>
+
+	<div>
+		<ul id="u1">
+			<li><a href="http://www.naver.com">네이버</a></li>
+			<li><a href="http://www.daum.net">다음</a></li>
+			<li><a href="http://www.w3schools.com">w3schools</a></li>
+			<li><a href="http://www.google.com">구글</a></li>
+		</ul>
+	</div>
+	
+	<div>
+		<ul id="u2">
+			<li><img src="../images/image.1.jpg" alt="image1.jpg"></li>
+			<li><img src="../images/image.2.jpg" alt="image2.jpg"></li>
+			<li><img src="../images/image.3.jpg" alt="image3.jpg"></li>
+			<li><img src="../images/image.4.jpg" alt="image4.jpg"></li>
+		</ul>
+	</div>
+	
+	<div>
+		<ul id="u3">
+			<li><a href="http://www.naver.com">
+					<img src="../images/image.1.jpg" alt="image1.jpg">
+				</a>
+			</li>
+			<li><a href="http://www.naver.com">
+					<img src="../images/image.2.jpg" alt="image2.jpg">
+				</a>
+			</li>
+			<li><a href="http://www.naver.com">
+					<img src="../images/image.3.jpg" alt="image3.jpg">
+				</a>
+			</li>
+			<li><a href="http://www.naver.com">
+					<img src="../images/image.4.jpg" alt="image4.jpg">
+				</a>
+			</li>
+		</ul>
+	</div>
+	
+	<div>
+		<ol id="o1">
+			<li><a href="http://www.naver.com">네이버</a></li>
+			<li><a href="http://www.daum.net">다음</a></li>
+			<li><a href="http://www.w3schools.com">w3schools</a></li>
+			<li><a href="http://www.google.com">구글</a></li>
+		</ol>
+	</div>
+</body>
+</html>

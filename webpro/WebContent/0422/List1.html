@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+pre{
+	border : 5px double rgb(2,7,21);
+	background-color : rgb(225,225,225);
+	
+	margin : 20px;
+	padding : 10px;
+	
+	font-size : 1.5rem;
+}
+
+div{
+	border : 2px solid blue;
+	margin : 10px;
+	width : 20%;
+	
+	float : left;
+}
+
+ul{
+/* 	border : 2px solid green;  */
+	border-color : green;
+	border-style : solid;
+	border-width : 2px;
+	margin : 5px;
+}
+
+li{
+	border : 2px dotted pink;
+	margin : 5px;
+}
+#u2{
+	list-style-type:circle; 
+}
+#u3{
+	list-style-type:square; 
+}
+#u4{
+	list-style-type:none; 
+}
+#u5{
+	list-style-image: url("../images/check.png"); 
+}
+#u6{
+	list-style-position: inside;
+	list-style-type:square; 
+}
+#u7{
+	list-style : circle;
+	list-style : circle inside;
+	list-style : circle inside url("../images/check.png");
+	/*맨 마지막 꺼만 실행됨*/
+	
+}
+
+hr{
+	clear : both; /*float를 해제 right, left지정해야되지만 둘다 라는 의미로 both를 사용*/
+
+}
+</style>
+</head>
+<body>
+<pre>
+&lt;p> : 짧은 단락 (div, p태그 등을 포함할 수 없음)
+	
+	
+	
+&lt;div> : 긴 단락
+모든 태그가 포함될 수 있다.
+
+블럭요소는 원래 밑으로 배치한다.
+옆으로 배치하도록 설정하는 방법 > float : left / right 
+</pre>
+
+<div>
+	<ul id="u1">
+		<li>개나리</li>
+		<li>진달래</li>
+		<li>목련</li>
+		<li>해당화</li>
+		<li>라일락</li>
+	</ul>
+</div>
+
+<div>
+	<ul id="u2">
+		<li>개나리</li>
+		<li>진달래</li>
+		<li>목련</li>
+		<li>해당화</li>
+		<li>라일락</li>
+	</ul>
+</div>
+
+<div>
+	<ul id="u3">
+		<li>개나리</li>
+		<li>진달래</li>
+		<li>목련</li>
+		<li>해당화</li>
+		<li>라일락</li>
+	</ul>
+</div>
+
+<div>
+	<ul id="u4">
+		<li>개나리</li>
+		<li>진달래</li>
+		<li>목련</li>
+		<li>해당화</li>
+		<li>라일락</li>
+	</ul>
+</div>
+
+<div>
+	<ul id="u5">
+		<li>개나리</li>
+		<li>진달래</li>
+		<li>목련</li>
+		<li>해당화</li>
+		<li>라일락</li>
+	</ul>
+</div>
+
+<div>
+	<ul id="u6">
+		<li>개나리</li>
+		<li>진달래</li>
+		<li>목련</li>
+		<li>해당화</li>
+		<li>라일락</li>
+	</ul>
+</div>
+
+<div>
+	<ul id="u7">
+		<li>개나리</li>
+		<li>진달래</li>
+		<li>목련</li>
+		<li>해당화</li>
+		<li>라일락</li>
+	</ul>
+</div>
+
+<hr color = "red">
+
+<div>
+	<ol>
+		<li>개나리</li>
+		<li>진달래</li>
+		<li>목련</li>
+		<li>해당화</li>
+		<li>라일락</li>
+	</ol>
+</div>
+
+<div>
+	<ol>
+		<li>개나리</li>
+		<li>진달래</li>
+		<li>목련</li>
+		<li>해당화</li>
+		<li>라일락</li>
+	</ol>
+</div>
+
+<hr color ="blue">
+<dl>
+	<dt>html</dt>
+	<dd>문서의 내용/ 구조 작성</dd>
+	
+	<dt>CSS</dt>
+	<dd>문서의 스타일 작성</dd>
+	
+	<dt>JAVASCRIPT</dt>
+	<dd>문서의 동작을 작성</dd>
+
+</dl>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../CSS/public.css">
+<style>
+form{
+	border : 10px inset purple;
+	margin: 20px auto;
+	padding: 20px;
+	
+	width: 50%
+}
+
+label{
+	display : inline-block; /*block은 블럭 요소로 변경*/
+	width: 100px;
+	height: 40px;
+}
+</style>
+</head>
+<body>
+<pre>
+&lt;input type="button" value="확인">
+
+원래 고유 기능은 없다
+새로운 기능을 부여한다
+javascript가 필요하다
+onclick="함수()" 호출이 필요하다
+
+</pre>
+
+
+<form name="ff" action="typebutton.jsp" method="post">
+<label>아이디</label>
+<input type="text" id="id" name="id" class="txt"> <br>
+
+<label>이름</label>
+<input type="text" id="name" name="name" class="txt"> <br>
+
+<label>이메일</label>
+<input type="text" id="email" name="email" class="txt"> <br>
+
+<label>전화번호</label>
+<input type="text" id="tel" name="tel" class="txt"> <br>
+<br>
+<input type="button" value="확인" onclick="show()"><!-- 함수호출 -->
+
+</form>
+
+<div id="result">결과출력</div>
+
+<script type="text/javascript">
+// 함수 정의 
+function show() {	// 내가 정의한 함수
+	//alert("hello~~");	// 내장 함수 (팝업창)
+	
+	// 입력한 값을 가져온다 (id 이름으로 접근)
+	// 변수 선언 var 안써도됨
+	
+	// 객체를 가져옴 
+	// String id;
+	idEle = document.getElementById('id');
+	nameEle = document.getElementById('name');
+	emailEle = document.getElementById('email');
+	telEle = document.getElementById('tel');
+	
+// 	// 재선언 가능
+// 	idEle = document.querySelector('#id');
+// 	nameEle = document.querySelector('#name');
+// 	emailEle = document.querySelector('#email');
+// 	telEle = document.querySelector('#tel');
+	
+	// 전송할 데이터를 가공한다
+	// 값이 반환 get
+	// id = "id";
+	idvalue = idEle.value;  //input 요소이므로 value
+	namevalue = nameEle.value;
+	emailvalue = emailEle.value;
+	telvalue = telEle.value;
+	
+	// 한줄로도 입력이 가능하다
+	// String id = "id";
+	idvalue = document.querySelector('#id').value;
+	
+	// 전송하기를 한다
+	alert("아이디 : "+idvalue+"\n이름 : "+namevalue+"\n이메일 : "+emailvalue+"\n전화번호 : "+telvalue);
+	
+	code = "<table border='1'>",
+	code += "<tr><td>아이디</td><td>" + idvalue + "</td></tr>"
+	code += "<tr><td>이름</td><td>" + namevalue + "</td></tr>"
+	code += "<tr><td>이메일</td><td>" + emailvalue + "</td></tr>"
+	code += "<tr><td>전화번호</td><td>" + telvalue + "</td></tr>"
+	code +="</table>";
+	
+	//id="result"인 요소를 검색 - code변수의 내용을 출력
+	vres = document.getElementById('result');
+	vres = document.querySelector('#result')
+
+	// div요소 안에 넣기
+	vres.innerHTML = code;
+}
+
+
+
+</script>
+
+</body>
+</html>

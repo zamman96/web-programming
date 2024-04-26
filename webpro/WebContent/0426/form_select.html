@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+select#foods{ /* 띄어쓰기 X */
+	vertical-align: top;
+}
+</style>
+</head>
+<body>
+
+<form action="form_select.jsp" method="post">
+	이름<input name="name"><br>
+	
+	한 개 선택
+	<select name="food">
+		<option value="김밥">김밥</option>	
+		<option value="떡볶이" selected>떡볶이</option>	<!-- selected="selected" -->
+		<option value="우동">우동</option>	
+		<option value="라면">라면</option>	
+		<option value="돈가스">돈가스</option>	
+	</select>
+	
+	<br><br>
+	
+	여러 개 선택
+	<select id="foods" name="foods" multiple size="5">
+		<option value="김밥">김밥</option>	
+		<option value="떡볶이" selected>떡볶이</option>
+		<option value="우동">우동</option>	
+		<option value="라면" selected>라면</option>
+		<option value="돈가스">돈가스</option>	
+	</select>
+	<br><br>
+	<input type="submit" value="전송">
+	<button>전송</button> <!-- type="submit" -->
+</form>
+
+</body>
+</html>

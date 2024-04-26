@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>fieldset</title>
+<style>
+	form{
+		background : rgb(229,249,230);
+		border : 10px outset teal;
+		margin : 10px auto;
+		padding : 20px;
+		width: 50%;
+	}
+	fieldset{
+		background : white;
+		border : 1px dashed gray;
+		margin : auto;
+		width: 90%;
+	}
+	label{
+		width : 100px;
+		height: 30px;
+		display: inline-block;
+	}
+	legend{
+		font-size: 20px;
+		font-weight: bold;
+	}
+/* 	label[for=ma], label[for=fe]{ 
+ 		width: 50px; 
+ 	} */
+	
+	.gender{ /* class style*/
+		width: 50px;
+	}
+	label[for=ma]{
+		margin-left: 30px;
+	}
+	
+</style>
+</head>
+<body>
+
+<form>
+	<fieldset>
+		<legend>인적사항</legend>
+		
+		<label for="name">이름</label> <input id="name" name="name"><br>
+		
+		<label for="addr">주소</label> <input id="addr" name="addr"><br>
+		
+		<label for="tel">전화번호</label> <input id="tel" name="tel"><br>
+	</fieldset>
+	<br>
+	<fieldset>
+		<legend>경력사항</legend>
+		
+		<label>네이버</label> <input type="date" name="comp1_1">~<input type="date" name="comp1_2"><br>
+		
+		<label>다음</label> <input type="date" name="comp2_1">~<input type="date" name="comp2_2"><br>
+	</fieldset>
+	<br>
+		<fieldset>
+		<legend>봉사활동</legend>
+		
+		<label>봉사활동1</label> <input type="date" name="vol1_1">~<input type="date" name="vol1_2"><br>
+		<textarea name="vol1_3" rows="5" cols="85"></textarea>
+		<br><br>
+		<label>봉사활동2</label> <input type="date" name="vol2_1">~<input type="date" name="vol2_2"><br>
+		<textarea name="vol2_3" rows="5" cols="85"></textarea>
+	</fieldset>
+
+</form>
+
+<form>
+<fieldset>
+		<legend>인적사항</legend>
+		
+		<label for="name">이름</label> <input id="name" name="name"><br>
+		
+		<label for="addr">주소</label> <input id="addr" name="addr"><br>
+		
+		<label for="tel">전화번호</label> <input id="tel" name="tel"><br>
+		
+		<label>성별</label>
+		<input type="radio" name="gender" value="남자"> 남자
+		<input type="radio" name="gender" value="여자"> 여자
+		<br>
+		<br>
+		<label class="gender" for="ma">남자</label>
+		<input id="ma" type="radio" name="gender" value="남자"> 
+		<label class="gender" for="fe">여자</label>
+		<input id="fe" type="radio" name="gender" value="여자"> 
+	</fieldset>
+</form>
+
+</body>
+</html>

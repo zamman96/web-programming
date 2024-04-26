@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	label{
+		width : 100px;
+		height: 30px;
+		display: inline-block;
+	}
+</style>
+</head>
+<body>
+
+<form action="input속성.jsp" method="post">
+<label>아이디</label>
+<input name="id" readonly value="a001" placeholder="아이디 입력"> <br>
+<label>이름</label>
+	<input name="name" placeholder="2~10글자 한글 이름 입력" autofocus required pattern="[가-힣]{2,10}"><br> <!-- required 필수항목 -->
+<label>이메일</label>
+	<input name="email" type="text" placeholder="ex. id@naver.com" pattern="[a-zA-Z0-9]+@[a-zA-Z]+[0-9]*[.]+[a-z]+"><br>
+<label>전화번호</label>
+<!-- 	<input name="tel" type="tel" placeholder="ex. 010-0000-0000" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"><br> -->
+	<input name="tel" type="tel" placeholder="ex. 010-0000-0000" pattern="\d\d\d-\d\d\d\d-\d\d\d\d"><br>
+	
+	<button>출력</button>
+</form>
+
+</body>
+</html>

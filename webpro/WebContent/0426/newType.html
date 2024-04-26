@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../CSS/public.css">
+<style>
+form{
+	border : 20px solid pink;
+	border-color : red green;
+	width : 50%;
+	height: 500px;
+	margin : 30px;
+	padding : 20px;
+}
+</style>
+<script>
+/*  함수 정의  */
+
+function changeColor() {
+	// id=color인 요소
+	var vcolor = document.getElementById('color').value;
+	var vcolor = document.querySelector('#color').value;
+
+	console.log(vcolor);
+	// form 요소 접근
+	vform = document.getElementById('if');
+	vform = document.nf;
+	
+	vform.style.borderColor = vcolor;
+}
+
+</script>
+</head>
+<body>
+<pre>
+색상 선택해서 바뀌면 form태그의 테두리 색을 변경한다</pre>
+	<input id="color" type="color" onchange="changeColor()">
+	<br>
+	<br>
+
+<form id="if" name="nf">
+	<input type = "number" min="0" max="10000" step="10" value="100"><br>
+	<input type = "range" min="0" max="10000" step="10" value="100"><br>
+	
+	<br><br>
+
+</form>
+
+</body>
+</html>

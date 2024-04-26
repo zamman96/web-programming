@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+
+<script>
+// 함수 정의
+function calc() {
+// 	id="price", id="qty" 인요소에 접근 - 값을 가져온다
+// 	price = document.getElementById('price').value;
+	let item = document.querySelector('#name').value;
+	let price = document.querySelector('#price').value;
+	let qty = document.querySelector('#qty').value;
+	
+	let res = (price * qty).toLocaleString();
+	// .toLocaleString() 숫자 수식
+
+	alert(`${item}의 총합${res}원`);
+	
+	// id="result"인 요소를 검색 - 출력 input이므로 value
+	document.querySelector('#result').value = res;
+	
+	// 출력내용
+	code = `<table border="1">
+			<tr><td>상품명</td><td>${item}</td></tr>
+			<tr><td>수량</td><td>${qty}</td></tr>
+			<tr><td>가격</td><td>${price}</td></tr>
+			<tr><td>합계</td><td>${res}</td></tr>
+			</table>`;//백틱
+	
+	// id="dres"인 요소 검색
+	document.querySelector('#dres').innerHTML=code;
+
+}
+
+</script>
+
+</head>
+<body>
+<form>
+	상품명<input type="text" id="name"><br>
+	가격<input type="number" id="price" value="100" step="10" max="100000" min="10"><br>
+	수량<input type="number" id="qty" value="10" step="5" max="10000"><br>
+	<br>
+	<input type="button" value="확인" onclick="calc()"> <!-- 함수 호출 -->
+	<br><br>
+	결과<input type="text" id="result"><br><br>
+</form>
+	<div id="dres"></div>
+</body>
+</html>

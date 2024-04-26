@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+pre{
+	background-color : rgb(240,240,242);
+	border : 10px inset purple;
+	padding : 10px;
+	margin : 5px;
+	font-size : 1.2rem;
+	
+	border-left : none;
+	border-right : none;
+	
+}

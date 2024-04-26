@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>테이블</title>
+<style>
+	table {
+		border : 15px outset gray; /*inset*/
+/* 		border-width : 5px 10px; */
+/* 		border-color : pink gray; */
+		margin : 20px auto;
+	}
+	caption{
+/* 		border : 2px solid pink; */
+		font-size: 30px;
+		margin : 10px;
+/* 		caption-side : bottom; */
+	}
+	td{
+		width : 300px;	/*th도 width 같은 값으로 따라감*/
+		height : 50px;
+		text-align: center;
+	}
+	th{
+		background-color: gray;
+		color : white;
+		font-size : 1.5rem;
+		height : 30px;
+	}
+	
+	#tap2{
+		border : 20px ridge pink; /* groove */
+	}
+	
+	#tap2 td{
+		width : 250px;	
+		height : 60px;
+	}
+	
+	#tap2 th{
+		background : crimson;
+		color : white;
+	}
+</style>
+</head>
+<body>
+<table id="tap1" border = "1"> <!-- 1 OR 0 -->
+<caption>회원 정보</caption>
+	<tr>
+		<th>이름</th>
+		<th>주소</th>
+		<th>전화번호</th>
+	</tr>
+	
+	<tr>
+		<td>홍길동</td>
+		<td>대전</td>
+		<td>010-1234-1234</td>
+	</tr>
+	
+	<tr>
+		<td>김철수</td>
+		<td>청주</td>
+		<td>010-1111-1111</td>
+	</tr>
+	
+	<tr>
+		<td>김영희</td>
+		<td>서울</td>
+		<td>010-2222-2222</td>
+	</tr>
+</table>	
+<table id="tap2" border = "1"> <!-- 1 OR 0 -->
+	<tr>
+		<th>이름</th>
+		<th>주소</th>
+		<th>전화번호</th>
+	</tr>
+	
+	<tr>
+		<td>홍길동</td>
+		<td>대전</td>
+		<td>010-1234-1234</td>
+	</tr>
+	
+	<tr>
+		<td>김철수</td>
+		<td>청주</td>
+		<td>010-1111-1111</td>
+	</tr>
+	
+	<tr>
+		<td>김영희</td>
+		<td>서울</td>
+		<td>010-2222-2222</td>
+	</tr>
+</table>	
+</body>
+</html>
