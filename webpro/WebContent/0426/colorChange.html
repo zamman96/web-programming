@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+form{
+   border : 5px solid black;
+   margin : 10px auto;
+   paddding : 10px;
+   width : 50%;
+   height : 300px;
+}
+</style>
+
+<script type="text/javascript">
+function changeColor(){
+   //id="color"인 요소 접근 - 값을 가져온다
+   vcolor = document.getElementById('color').value
+   
+   //id=ff1인 요소를 검색 - 배경색을 변경
+   document.getElementById('ff1').style.backgroundColor = vcolor;
+}
+function colorChange(target) {
+   //target변수 : 호출 시 this객체를 받은  변수
+   vcolor =target.value;
+ //id=ff2인 요소를 검색 - 배경색을 변경
+   document.getElementById('ff2').style.backgroundColor = vcolor;
+}
+</script>
+
+</head>
+<body>
+<h3>&lt;input type="color" onchange="changeColor()"></h3>
+<input id="color" type="color" onchange="changeColor()">
+<br><br>
+<form id="ff1">
+
+</form>
+
+<br>
+<hr>
+<br>
+<h3>&lt;input type="color" onchange="colorChange(this)"></h3>
+<input id="thiscolor" type="color" onchange="colorChange(this)">
+<form id="ff2">
+
+</form>
+
+</body>
+</html>

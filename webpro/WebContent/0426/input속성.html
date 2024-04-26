@@ -20,7 +20,7 @@ input type="hidden" : 안보이는 요소 서버로 값을 전송
 </pre>
 <form action="input속성.jsp" method="post">
 <label>아이디</label>
-<input name="id" readonly value="a001" placeholder="아이디 입력"> <br>
+<input name="id" readonly title="수정불가" value="a001" placeholder="아이디 입력"> <br>
 
 <!-- 안보이는 요소 서버로 값을 전송 -->
 <input type="hidden" name="age" value="30">
@@ -35,7 +35,7 @@ input type="hidden" : 안보이는 요소 서버로 값을 전송
 	<input name="email" type="text" placeholder="ex. id@naver.com" pattern="[a-zA-Z0-9._%+\-]+@([a-zA-Z]+[0-9.\-]*[a-zA-Z]*)(\.[a-zA-Z]+){1,2}"><br>
 <label>전화번호</label>
 <!-- 	<input name="tel" type="tel" placeholder="ex. 010-0000-0000" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"><br> -->
-	<input name="tel" type="tel" placeholder="ex. 010-0000-0000" pattern="\d\d\d-\d\d\d\d-\d\d\d\d"><br>
+	<input name="tel" type="tel" title="010-1234-1234" placeholder="ex. 010-0000-0000" pattern="\d\d\d-\d\d\d\d-\d\d\d\d"><br>
 	
 	<button>출력</button>
 </form>
