@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="../CSS/public.css">
 <style>
 	label{
 		width : 100px;
@@ -12,14 +13,26 @@
 </style>
 </head>
 <body>
-
+<pre>
+input type="hidden" : 안보이는 요소 서버로 값을 전송
+속성 disabled : 서버로 전송되지 않는다, 수정 안됨, 비활성화 상태
+속성 readonly : 서버로 값을 전송, 값 수정은 안됨
+</pre>
 <form action="input속성.jsp" method="post">
 <label>아이디</label>
 <input name="id" readonly value="a001" placeholder="아이디 입력"> <br>
+
+<!-- 안보이는 요소 서버로 값을 전송 -->
+<input type="hidden" name="age" value="30">
+
+<!-- disabled : 서버로 전송되지 않는다, 수정안됨, 비활성화 상태 -->
+<label>별칭</label>
+<input type="text" name="alias" value="토끼" disabled><br>
+
 <label>이름</label>
 	<input name="name" placeholder="2~10글자 한글 이름 입력" autofocus required pattern="[가-힣]{2,10}"><br> <!-- required 필수항목 -->
 <label>이메일</label>
-	<input name="email" type="text" placeholder="ex. id@naver.com" pattern="[a-zA-Z0-9]+@[a-zA-Z]+[0-9]*[.]+[a-z]+"><br>
+	<input name="email" type="text" placeholder="ex. id@naver.com" pattern="[a-zA-Z0-9._%+\-]+@([a-zA-Z]+[0-9.\-]*[a-zA-Z]*)(\.[a-zA-Z]+){1,2}"><br>
 <label>전화번호</label>
 <!-- 	<input name="tel" type="tel" placeholder="ex. 010-0000-0000" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"><br> -->
 	<input name="tel" type="tel" placeholder="ex. 010-0000-0000" pattern="\d\d\d-\d\d\d\d-\d\d\d\d"><br>
