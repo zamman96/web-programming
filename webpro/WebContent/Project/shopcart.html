@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="mystyle.css">
+<link rel="shortcut icon" href="./images/bag.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://
+fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@100..900&family=Jua&display=swap"
+	rel="stylesheet">
+<meta charset="UTF-8">
+<title>장바구니 페이지</title>
+<style>
+body * {
+	font-family: "Hahmlet", serif;
+	font-optical-sizing: auto;
+	font-weight: < weight >;
+	font-style: normal;
+	font-optical-sizing: auto;
+	font-weight: <weight>;
+}
+</style>
+<script>
+function cal() {
+	let price = ['2000000', '50000', '1000', '5000']
+	let qtys = document.getElementsByClassName('qty');
+	let sums = document.getElementsByClassName('sum');
+	let total = document.querySelector('#total')
+	var totalsum = 0;
+	
+	for(var i=0; i<qtys.length; i++){
+		var sum = price[i]*parseInt(qtys[i].value);
+		sums[i].value=sum.toLocaleString();
+		
+		totalsum+=sum;	
+	}
+	total.value=totalsum.toLocaleString();
+}
+function resetFields() {
+    let qtys = document.getElementsByClassName('qty');
+    let sums = document.getElementsByClassName('sum');
+    let total = document.querySelector('#total');
+    
+    for (let i = 0; i < qtys.length; i++) {
+        qtys[i].value = 1; // 각 수량 입력 필드를 1로 초기화
+        sums[i].value = 0; // 각 합계 입력 필드를 0으로 초기화
+    }
+    
+    total.value = 0; // 총 합계를 0으로 초기화
+}
+</script>
+
+</head>
+<body class="otherBody">
+<h1 id="page">장바구니 페이지</h1>
+<fieldset>
+<table border="1">
+<tr>
+	<th>품목</th>
+	<th>가격</th>
+	<th>수량</th>
+	<th>합계</th>
+</tr>
+<tr>
+	<td>컴퓨터 세트</td>
+	<td>2,000,000원</td>
+	<td><input class="qty" type="number" id="qty1" value="0" min="0"></td>
+	<td><input class="sum" id="sum1" value="0" readonly title="계산 버튼을 눌러 확인해주세요"></td>
+</tr>
+<tr>
+	<td>티셔츠</td>
+	<td>50,000원</td>
+	<td><input class="qty" type="number" id="qty2" value="0" min="0"></td>
+	<td><input class="sum" id="sum2" value="0" readonly title="계산 버튼을 눌러 확인해주세요"></td>
+</tr>
+<tr>
+	<td>음악 파일</td>
+	<td>1,000원</td>
+	<td><input class="qty" type="number" id="qty3" value="0" min="0"></td>
+	<td><input class="sum" id="sum3" value="0" readonly title="계산 버튼을 눌러 확인해주세요"></td>
+</tr>
+<tr>
+	<td>영화 파일</td>
+	<td>5,000원</td>
+	<td><input class="qty" type="number" id="qty4" value="0" ></td>
+	<td><input class="sum" id="sum4" value="0" readonly title="계산 버튼을 눌러 확인해주세요"></td>
+</tr>
+<tr>
+<th colspan="2">총 합계</th>
+<td colspan="2"><input id="total" value="0" readonly title="계산 버튼을 눌러 확인해주세요"></td>
+</tr>
+</table>
+<br>
+<br>
+
+<input type="button" onclick="cal()" value="계산" class="button">
+<input type="submit" value="구매" class="button">
+<input type="reset" value="초기화" class="button" onclick="resetFields()">
+</fieldset>
+<br>
+<a href="main.html" class="home">Back to Home</a>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div{
+	height: 100px;
+	border : 2px solid pink;
+	margin: 20px;
+	padding: 30px;
+	font-size: 2.0rem;
+}
+</style>
+<script>
+
+// 전역변수
+var v1="123";
+let v2= 10;
+const v3 = "100";
+// let disp="";
+
+const proc1 = () => {
+	let hap=0;
+	for(let i=0; i<=v2; i++){
+		hap+=i;
+		// i값을 출력 가능
+		alert(i);
+	}
+	// 함수 내에서 선언하면 지역 변수
+	let disp = `1~${v2} 의 합 = ${hap} <br>`;
+	// i값을 출력 불가능 - let i변수는 for 블럭 범위 이기 때문에 블럭을 넘어나서 사용할 수 없다
+// 	alert(i); // 오류
+	printShow(disp);
+}
+
+// 다른 블럭에 있는 값을 받아서 출력하기 위해 변수로 받음
+const printShow = function(disp){
+	document.getElementById('result1').innerHTML = disp;
+}
+
+</script>
+</head>
+<body>
+
+<div id="result1"></div>
+<button onclick="proc1()">확인</button>
+</body>
+</html>

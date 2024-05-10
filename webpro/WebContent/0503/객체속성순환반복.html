@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../CSS/public.css"> 
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+const proc1 = () =>{
+	
+	// 객체를 선언 { 키(name) : value, 키(name) : value, 키(name) : value}
+	const myCar = {make : "BMW", model : "X5", year : 2020	};
+	
+	let str ="";
+	for(let i in myCar){
+		str += `myCar[${i}] : ${myCar[i]} <br>`
+	}
+	document.querySelector('#result1').innerHTML=str;
+}
+</script>
+</head>
+<body>
+
+	<div class="box">
+		<h3>객체 속성과 값 <br>
+		{ 키(name) : value, 키(name) : value, 키(name) : value} <br>
+		for ~ in</h3>
+		
+		<input type="button" value="확인" onclick="proc1()"> <br> <br>
+
+		<div id="result1"></div>
+	</div>
+</body>
+</html>

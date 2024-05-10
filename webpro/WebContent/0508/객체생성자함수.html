@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../CSS/public.css"> 
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+function Rect(width, height) {
+	
+	if(typeof width == 'undefined'){
+		this.width = prompt("너비 입력");
+	} else{
+		this.width = width;
+	}
+	
+	if(typeof height == 'undefined'){
+		this.height = prompt("높이 입력");
+	}else {
+		this.height = height;
+	}
+	
+	this.getArea = function(){
+		return this.width * this.height;
+	}
+// 	this.getCircum = function(){
+// 		return (parseInt(this.width)+parseInt(this.height))*2;
+// 	}
+}
+
+// 함수 선언 후 동적으로 추가
+Rect.prototype.getCircum = function() {
+	return (parseInt(this.width)+parseInt(this.height))*2;
+}
+
+const proc1 = () => {
+	// 객체 생성
+	const p1 = new Rect();
+	
+	// name 속성을 동적으로 추가 - p1객체만 사용, 다른 객체는 사용 불가
+	p1.name = "네모";
+	console.log(p1);
+	
+	//getCircum()를 동적으로 추가 - p1객체만 사용
+// 	p1.getCircum = function() {
+// 		return (parseInt(this.width)+parseInt(this.height))*2;
+// 	}
+	
+	printRect('result1', p1);
+}
+
+const proc2 = () => {
+	// 객체 생성
+	const p2 = new Rect(5,8);
+	p2.name="사각형";
+	console.log(p2);
+	
+	printRect('result2', p2);
+}
+
+const printRect = (result, p) => {
+	disp = `너비 : ${p.width} <br>
+			높이 : ${p.height}<br>
+			이름 : ${p.name}<br>
+			면적 : ${p.getArea()} <br>
+			둘레 : ${p.getCircum()}`;
+	
+	document.getElementById(result).innerHTML =disp;
+}
+</script>
+</head>
+<body>
+
+	<div class="box">
+		<h3></h3>
+		<input type="button" value="확인" onclick="proc1()"> <br> <br>
+
+		<div id="result1"></div>
+	</div>
+	
+	<div class="box">
+		<h3></h3>
+		<input type="button" value="확인" onclick="proc2()"> <br> <br>
+
+		<div id="result2"></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	p{
+		color : pink;
+	}
+	#pp{
+		color : red;
+	}
+	p[id=pp]{
+		background: gray;
+	}
+	.flow{
+		color : green;
+	}
+	p[class=flow]{
+		border : 1px solid teal;
+	}
+	p[title=꽃]{	/*속성을 활용한 선택*/
+		font-size: 1.2rem;
+	}
+	p[title]{	/*title만 있는 속성 선택*/
+		background: green;
+	}
+</style>
+</head>
+<body>
+
+<p name="p1">무궁화 꽃이 피었습니다</p>
+<p id="pp">무궁화 꽃이 피었습니다</p>
+<p class="flow">무궁화 꽃이 피었습니다</p>
+<p class="flow">무궁화 꽃이 피었습니다</p>
+<p title="무궁화">무궁화 꽃이 피었습니다</p>
+<p title="꽃">무궁화 꽃이 피었습니다</p>
+<p>무궁화 꽃이 피었습니다</p>
+<p>무궁화 꽃이 피었습니다</p>
+
+</body>
+</html>

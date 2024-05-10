@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../CSS/public.css">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	// 객체 정의 선언
+	const rect = {
+
+	}
+	
+
+// rect객체 밖에서 속성들을 동적으로 추가
+// rect.width = 5;
+// rect.height = 4;
+
+rect.getCircum = function() {
+	return (parseInt(this.width) + parseInt(this.height) )*2;
+}
+	
+function proc1() {
+	// 메서드 안에서도 속성 추가 가능
+	rect.width = 5;
+	rect.height = 4;
+	rect.name = "네모";
+	rect.getArea = function(){
+		return this.width * this.height;
+	}
+
+	
+	// 출력
+	printRect('result1');
+}
+console.log(rect);
+
+const printRect = res => {
+	let disp = '';
+	let rname = '';
+	let rcolor = '';
+    if (typeof rect.name != 'undefined') {
+    	rname = rect.name;
+    } 
+    if (typeof rect.color != 'undefined') {
+    	rcolor = rect.color;
+    }
+        disp += `이름 : ${rname} <br>`;
+        disp += `색상 : ${rcolor} <br>`;
+        disp += `너비 : ${rect.width} <br>`;
+        disp += `높이 : ${rect.height} <br>`;
+        disp += `넓이 : ${rect.getArea()} <br>`;
+        disp += `둘레 : ${rect.getCircum()} <br>`;
+document.getElementById(res).innerHTML = disp;
+}
+</script>
+</head>
+<body>
+
+	<div class="box">
+		<h3>
+			리터럴 객체 생성<br> const rect = { key : "value" }
+		</h3>
+		<input type="button" value="확인" onclick="proc1()"> <br> <br>
+
+		<div id="result1"></div>
+	</div>
+</body>
+</html>

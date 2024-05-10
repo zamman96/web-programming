@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../CSS/public.css">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	// 객체 정의 선언
+	const rect = {
+
+		width : 10,
+		height : 5,
+		
+// 		getArea : function() {
+// 			return this.width * this.height;
+// 		}
+	
+		getArea() {
+			return this.width * this.height;	// this 생략X
+		}
+	}
+	
+	// rect 객체에 getCircum()메소드를 동적으로 추가
+// rect.getCircum = function() {
+	
+// }
+	
+rect.getCircum = function() {
+	return (parseInt(this.width) + parseInt(this.height) )*2;
+}
+	
+function proc1() {
+	// 객체 사용
+// 	let vw = rect.width;
+// 	let vh = rect.height;
+// 	let va = rect.getArea();
+	
+	// 출력
+	printRect('result1');
+}
+console.log(rect);
+function proc2() {
+
+	rect.width = prompt("너비 입력");
+	rect.height = prompt("높이 입력");
+
+	// 객체 사용
+// 	let vw = rect.width;
+// 	let vh = rect.height;
+// 	let va = rect.getArea();
+	
+	// 출력
+	printRect('result2');
+}
+
+function proc3() {
+
+	// name 속성은 rect객체에 선언 되지 않은 속성
+	// 동적으로 필요 시 추가가 가능하다
+	rect.name = prompt("이름 입력");	// 이름이 없어도 동적으로 추가됨
+	rect.color = prompt("색 입력");
+
+	// 객체 사용
+// 	let vw = rect.width;
+// 	let vh = rect.height;
+// 	let va = rect.getArea();
+	
+	// 출력
+	printRect('result3');
+}
+const printRect = res => {
+	let disp = '';
+	let rname = '';
+	let rcolor = '';
+    if (typeof rect.name != 'undefined') {
+    	rname = rect.name;
+    } 
+    if (typeof rect.color != 'undefined') {
+    	rcolor = rect.color;
+    }
+        disp += `이름 : ${rname} <br>`;
+        disp += `색상 : ${rcolor} <br>`;
+        disp += `너비 : ${rect.width} <br>`;
+        disp += `높이 : ${rect.height} <br>`;
+        disp += `넓이 : ${rect.getArea()} <br>`;
+        disp += `둘레 : ${rect.getCircum()} <br>`;
+document.getElementById(res).innerHTML = disp;
+}
+</script>
+</head>
+<body>
+
+	<div class="box">
+		<h3>
+			리터럴 객체 생성<br> const rect = { key : "value" }
+		</h3>
+		<input type="button" value="확인" onclick="proc1()"> <br> <br>
+
+		<div id="result1"></div>
+	</div>
+	
+	<div class="box">
+		<h3>
+			리터럴 객체 생성<br> const rect = { key : "value" }<br>가로세로를 입력받음
+		</h3>
+		<input type="button" value="확인" onclick="proc2()"> <br> <br>
+
+		<div id="result2"></div>
+	</div>
+	
+	<div class="box">
+		<h3>
+			리터럴 객체 생성<br> const rect = { key : "value" }<br>name과 color를 추가
+		</h3>
+		<input type="button" value="확인" onclick="proc3()"> <br> <br>
+
+		<div id="result3"></div>
+	</div>
+</body>
+</html>

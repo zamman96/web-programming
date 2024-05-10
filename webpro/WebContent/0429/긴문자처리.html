@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+div {
+	width: 30%;
+	height: 200px;
+	border: 2px dotted black;
+	margin: 20px;
+	padding: 10px;
+	/* 	word-wrap : break-word;*/ /*영문자 띄어쓰지 않은 것의 처리*/
+}
+
+#d2{
+	word-wrap : break-word; 
+}
+</style>
+<script>
+
+
+// function appendStr(){ /* 함수 이름 */
+// }
+
+// const appendStr = function() { /* 변수이름 */
+	
+// }
+
+
+// 확인 버튼을 클릭하면 랜덤으로 배열 증 하나의 문자열을 div에 삽입하는 함수 세우기
+// 문자배열 
+const arr = ["hello","happy","Java","goodmoring","sleep"];
+
+// 문자 선택 - arr[rand] > arr[4] / arr[2] / arr[0]
+// 화살표 함수 es6이후 사용가능
+const appendStr = () => {
+
+	// 랜덤 발생
+	let rand = parseInt(Math.random()*arr.length)
+	// random 0<math.random<1
+	
+	// textNode를 생성 - 랜덤으로 발생하는 문자열
+	let text = document.createTextNode(arr[rand]);
+	
+	// 부모요소인 div에 textNode를 자식요소로 추가 - appendChild()
+	document.querySelector('#d2').appendChild(text);
+	
+}
+
+// const arr =  [10,20,30]
+// const arr2 =  [10,20,30]
+// arr= arr2 불가능 (주소값 변경 불가능)
+
+</script>
+
+</head>
+<body>
+	<div id="d1">
+		happynewyearhappynewyearhappynewyearhappynewyearhappynewyearhappynewyear
+		happynewyearhappynewyearhappynewyearhappynewyearhappynewyearhappynewyearhappynewyear
+		happynewyearhappynewyearhappynewyearhappynewyearhappynewyearhappynewyearhappynewyear
+		happynewyearhappynewyearhappynewyearhappynewyearhappynewyearhappynewyearhappynewyear
+		happynewyearhappynewyearhappynewyearhappynewyearhappynewyearhappynewyearhappynewyear
+		happynewyearhappynewyearhappynewyearhappynewyearhappynewyearhappynewyearhappynewyear
+		happynewyearhappynewyearhappynewyearhappynewyearhappynewyearhappynewyearhappynewyear
+		happynewyearhappynewyearhappynewyearhappynewyearhappynewyearhappynewyearhappynewyear
+	</div>
+
+	<h2>확인버튼 클릭하면 랜덤으로 발생하는 문자열을 div에 삽입한다.</h2>
+
+	<div id="d2">
+		Happy New year <br>
+	</div>
+	<input type="button" value="확인" onclick="appendStr()">
+
+</body>
+</html>

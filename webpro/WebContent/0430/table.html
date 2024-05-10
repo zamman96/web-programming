@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+table {
+	border: 2px solid blue;
+	empty-cells: hide;
+}
+
+td {
+	width: 300px;
+	height: 40px;
+	text-align: center;
+}
+
+caption {
+	font-size: 1.5rem;
+	caption-side: bottom;
+	margin: 20px;
+	letter-spacing: 15px;
+}
+
+#tab2{
+	border-collapse: collapse;
+}
+#tab3{
+	border-spacing: 30px;
+}
+</style>
+</head>
+<body>
+	<table border="1" id="tab1">
+		<caption>시간표</caption>
+		<tr>
+			<td>1</td>
+			<td>2</td>
+			<td>3</td>
+			<td>4</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>2</td>
+			<td>3</td>
+			<td>4</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>2</td>
+			<td>3</td>
+			<td>4</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>2</td>
+			<td>3</td>
+			<td>4</td>
+		</tr>
+	</table>
+	<h3>border-collapse: collapse</h3>
+	<table border="1" id="tab2">
+		<caption>시간표</caption>
+		<tr>
+			<td>1</td>
+			<td>2</td>
+			<td>3</td>
+			<td>4</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>2</td>
+			<td>3</td>
+			<td>4</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>2</td>
+			<td>3</td>
+			<td>4</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>2</td>
+			<td>3</td>
+			<td>4</td>
+		</tr>
+	</table>
+	<h3>border-spacing: 30px</h3>
+	<table border="1" id="tab3">
+		<caption>시간표</caption>
+		<tr>
+			<td>1</td>
+			<td>2</td>
+			<td>3</td>
+			<td>4</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>2</td>
+			<td>3</td>
+			<td>4</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>2</td>
+			<td>3</td>
+			<td>4</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>2</td>
+			<td></td> <!-- 빈셀 테두리 설정 empty-cells -->
+			<td></td>
+		</tr>
+	</table>
+</body>
+</html>

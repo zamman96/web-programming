@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../CSS/public.css"> 
+<!-- href="http://ip주소(localhost)/webpro/css/public.css" -->
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+function proc1() {
+	let user1;
+	let user2;
+	// 첫번째 사람
+	while(true){
+	user1 = prompt("use1의 가위 바위 보를 입력해주세요");
+		if(user1!="가위"&&user1!="바위"&&user1!="보"){
+			alert("잘못된 입력입니다.");
+			continue;
+		}
+		break;
+	}
+	// 두번째 사람
+	while(true){
+	user2 = prompt("user2의 가위 바위 보를 입력해주세요");
+		if(user2!="가위"&&user2!="바위"&&user2!="보"){
+			alert("잘못된 입력입니다.");
+			continue;
+		}
+		break;
+	}
+	
+	if(user1==user2){
+		res="비겼습니다.";
+	} else if((user1=="가위"&&user2=="보")||(user1=="주먹"&&user2=="가위")||(user1=="보"&&user2=="주먹")){
+		res="user1가 이겼습니다!";
+	} else{
+		res="user2가 이겼습니다!";
+	}
+
+	disp = ` user1 : ${user1} <br>`
+	disp+= ` user2 : ${user2} <br><br>`
+	disp+=`결과 : ${res} <br>`;
+	document.getElementById('result1').innerHTML = disp;
+}
+</script>
+<body>
+	<div class="box">
+		<h3>두 사람의 가위바위보를 입력(prompt)해서 승패를 출력하는 프로그램</h3>
+		<input type="button" value="확인" onclick="proc1()"> <br> <br>
+
+		<div id="result1"></div>
+	</div>
+</body>
+</html>

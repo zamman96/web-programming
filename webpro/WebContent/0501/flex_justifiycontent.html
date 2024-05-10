@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+#container {
+	display: flex;
+	/* float : left; */
+	background: dodgerblue;
+	flex-direction: rows;
+	justify-content: flex-start;
+}
+
+#container div {
+	background: #f1f1f1;
+	width: 100px;
+	margin: 10px;
+	text-align: center;
+	line-height: 75px;
+	font-size: 30px;
+}
+</style>
+
+<script>
+window.onload=function(){
+	
+	let types = document.fform.fdType;
+	
+	//id = container인 요소 접근
+// 	let fcont =document.getElementById('container');
+	let fcont =document.getElementsByClassName('f-container');
+	console.log(fcont);
+	
+	for(let i=0; i<types.length;i++){
+		// 이벤트 핸들러 추가
+		types[i].addEventListener('change', function(){
+// 			fcont.style.flexWrap = types[i].value;
+			fcont.item(0).style.justifyContent=this.value;
+		})
+	}
+}
+</script>
+</head>
+<body>
+
+	<h3>flex-direction</h3>
+
+	<form name="fform">
+		<label> <input type="radio" name="fdType" value="flex-start" checked>flex-start
+		</label> <label> <input type="radio" name="fdType" value="flex-end">flex-end
+		</label> <label> <input type="radio" name="fdType" value="center">center
+		</label> <label> <input type="radio" name="fdType" value="space-around">space-around
+		</label> <label> <input type="radio" name="fdType" value="space-between">space-between
+		</label>
+	</form>
+
+	<div id="container" class="f-container">
+		<div>1</div>
+		<div>2</div>
+		<div>3</div>
+		<div>4</div>
+		<div>5</div>
+
+	</div>
+
+</body>
+</html>

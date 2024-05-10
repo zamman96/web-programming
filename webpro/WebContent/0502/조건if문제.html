@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="shortcut icon" href="../images/check.png">
+<link rel="stylesheet" href="../CSS/public.css">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+const proc1 = () => {
+	// 첫번째 수 입력
+	let su1 = prompt("첫 번째 수 입력");
+	
+	// 연산자 입력
+	let op = prompt("연산자 입력");
+	
+	// 두번째 수 입력
+	let su2 = prompt("두 번째 수 입력");
+	
+	
+	let res = 0;
+	// 비교
+	if(op==='+'){ // 더하기 할때만 변환 필요
+		res=parseInt(su1)+parseInt(su2);
+	} else if(op=='-'){
+		res=su1-su2;		
+	} else if(op=='/'){
+		res=su1/su2;		
+		res=res.toFixed(2); //소숫점 2자리 출력
+	} else if(op=='*'){
+		res=su1*su2;
+	} else{
+		alert('연산자 오류입니다');
+// 		document.getElementById('result1').innerText = "연산자 오류";
+		return;
+	}
+	
+	res=res.toLocaleString();	// ,로 출력
+	
+	//출력 내용 34+23=57
+	let disp = ` ${su1} ${op} ${su2} = ${res} <br>`;
+	document.getElementById('result1').innerHTML = disp;
+	
+}
+</script>
+</head>
+
+<body>
+	<div class="box">
+		<h3>두 개의 정수와 연산자를 입력(prompt)해서 계산 하는 프로그램</h3>
+		<input type="button" value="확인" onclick="proc1()"> <br> <br>
+
+		<div id="result1"></div>
+	</div>
+</body>
+</html>

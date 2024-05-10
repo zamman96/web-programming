@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../CSS/public.css">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+const proc1 = () => {
+	const arr = [];
+	while(true){
+		let name = prompt("이름을 입력");
+		if(name=="" || name==null){
+			break;
+		}
+		arr.push(name);
+	}
+	
+	let disp = arr;
+	document.querySelector('#result1').innerText = disp;
+}
+
+const proc2 = () => {
+	const arr = [];
+	while(arr.length<5){
+		let num = prompt("숫자를 입력");
+		if(arr.indexOf(num)!=-1){
+			alert("중복된 숫자입니다");
+		} else{
+			arr.push(num);
+		}
+	}
+	
+	
+	let disp = arr;
+	
+	document.querySelector('#result2').innerText = disp;
+}
+</script>
+</head>
+<body>
+	<div class="box">
+		<h3>prompt()를 이용하여 이름을 계속 입력 받아 배열에 저장하고 출력하는 프로그램을 작성하시오. - 입력의
+			마지막은 공백 문자를 입력하거나 “취소” 버튼을 눌렀을 때(null)로 한다.</h3>
+		<input type="button" value="확인" onclick="proc1()"> <br> <br>
+
+		<div id="result1"></div>
+	</div>
+	<div class="box">
+		<h3>서로 중복되지 않은 정수 5개를 입력 받아 출력하는 프로그램을 작성하시오</h3>
+		<input type="button" value="확인" onclick="proc2()"> <br> <br>
+
+		<div id="result2"></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../CSS/public.css"> 
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+const proc1 = () => {
+	// 입력
+	input = prompt("입력").trim();
+	
+	// 길이를 비교, 앞 뒤 공백 제외 1자리 이상 입력되었는지 비교
+	if(input.length > 0){
+		alert("올바른 데이터");
+	} else{
+		alert("데이터 오류");
+	}
+	
+}
+
+const proc2 = () => {
+	// textarea요소 접근 - 값 가져오기 - value 
+	text = document.querySelector('textarea').value;
+	console.log(text);
+	
+	// text 엔터기호 (\r\n)를 <br>태그로 변경 후 출력
+	// -> 정규식 /   /  [0-9]{3} [a-z]
+	// g : global : 전체영역
+	text = text.replace(/\n/g, "<br>");
+	
+	//result2에 출력
+	document.getElementById('result2').innerHTML=text;
+}
+const proc3 = () => {
+	const str = "홍길동/개나리/진달래/무궁화/라일락/수선화";
+	
+// 	arr = str.split("/",2); // ["홍길동", "개나리"]
+	arr = str.split("/");
+	
+	let out = "";
+	arr.forEach(function(a, idx) {
+		out += ` ${idx}번째의 ${a}<br>`;
+	})
+	
+	document.getElementById('result3').innerHTML=out;
+	
+}
+</script>
+</head>
+<body>
+
+	<div class="box">
+		<h3></h3>
+		<input type="button" value="확인" onclick="proc1()"> <br> <br>
+
+		<div id="result1"></div>
+	</div>
+	<div class="box">
+		<h3>입력된 기호 엔터를  &lt;br>태그로 바꿔서 출력<br>
+		replace(search, value)</h3>
+		<textarea rows="5" cols="30"></textarea>
+		<input type="button" value="확인" onclick="proc2()"> <br> <br>
+
+		<div id="result2"></div>
+	</div>	
+	<div class="box">
+		<h3>문자열을 배열로 변환 - 배열 메서드 join과 반대<br>split(구분자,갯수) : 갯수를 생략하면 전체를 대상으로 변환</h3>
+		<input type="button" value="확인" onclick="proc3()"> <br> <br>
+
+		<div id="result3"></div>
+	</div>
+</body>
+</html>

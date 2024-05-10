@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../CSS/public.css"> 
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+
+const proc1 = () => {
+	// 방법1
+	const arr = ["사과","복숭아","바나나","파인애플","딸기"];
+	
+	// 방법 1-1
+// 	const arr = [];
+// 	arr[0] ="사과";
+// 	arr[1] = "복숭아";
+	
+	// 방법2
+// 	const arr = new Array("사과","복숭아","바나나","파인애플","딸기");
+	
+	// 방법 2-1
+// 	const arr = new Array(2);
+// 	arr[0] ="사과";
+// 	arr[1] ="복숭아";
+// 	arr[2] ="바나나";	// 동적으로 크기가 증가
+	
+	printArr('result1',arr);
+}
+
+const printArr = (res, arr) => {
+// 	document.getElementById(res).innerHTML=arr;	// 값을 직접 찍을 수 있음
+	
+	let str = "";
+// 	for(let i=0; i<arr.length; i++){
+// 		str+=arr[i]+" ";
+// 	}
+	
+	arr.forEach(function(ar, index){
+// 		str += ar+" ";
+		str += ` ${index} 번째 : ${ar} <br>`;
+	})
+
+	document.getElementById(res).innerHTML=str;
+} 
+
+const proc2 = () => {
+	const fruits = new Array("토마토","오렌지","멜론","파인애플","딸기");
+	printArr('result2', fruits);
+}
+</script>
+</head>
+<body>
+
+	<div class="box">
+		<h3>const arr = []<br>
+		const arr = new Array()</h3>
+		<input type="button" value="확인" onclick="proc1()"> <br> <br>
+
+		<div id="result1"></div>
+	</div>
+
+	<div class="box">
+		<h3>const arr = []<br>
+		const arr = new Array()</h3>
+		<input type="button" value="확인" onclick="proc2()"> <br> <br>
+
+		<div id="result2"></div>
+	</div>
+</body>
+</html>

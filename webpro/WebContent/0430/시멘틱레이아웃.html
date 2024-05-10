@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+header, footer, section, aside{
+	box-sizing: border-box;
+	border: 1px solid gray;
+	margin: 2px;
+	padding: 2px;
+	border-radius:1%;
+}
+header,footer{
+	height: 50px;
+	background: maroon;
+}
+section {
+	float: left;
+	width: calc(59% - 1%);
+	background-image: linear-gradient(skyblue, white);
+}
+aside{\
+	width : calc(21% - 1%);
+	background: skyblue;
+}
+section, aside{
+	height: 500px;
+}
+#left{
+	float: left;
+}
+#right{
+	float: right;
+}
+footer{
+	clear: both;
+}
+
+</style>
+</head>
+<body>
+<header>header</header>
+<aside id="left">left</aside>
+<section>section</section>
+<aside id="right">right</aside>
+<footer>footer</footer>
+</body>
+</html>

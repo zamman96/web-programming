@@ -1,5 +1,20 @@
 @charset "UTF-8";
-
+@font-face {
+    font-family: 'KCC-Hanbit';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2403-2@1.0/KCC-Hanbit.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'GangwonEdu_OTFBoldA';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+body{
+    font-family: 'GangwonEdu_OTFBoldA';
+    	font-size: 1.2rem;
+}
 pre{
 	background-color : rgb(240,240,242);
 	border : 10px inset purple;
@@ -10,4 +25,34 @@ pre{
 	border-left : none;
 	border-right : none;
 	
+}
+
+.box{
+	border : 10px double white;
+	background:rgb(245,245,245);
+	margin: 5px;
+	margin-bottom:20px;
+	padding: 20px;
+	border-radius: 10px;
+}
+.box input[type=button]{
+	background : black;
+	color: white;
+	font-size:1.3rem;
+	width : 80px;
+	height: 40px;
+	padding : 5px;
+	border-radius: 20px;
+	font-family: 'KCC-Hanbit';
+}
+
+.box input[type=button]:active{
+	background: navy;
+}
+
+.box div{
+	border: 5px dotted rgb(245,245,245);
+	background : white;
+	padding : 10px;
+	margin :5px;
 }

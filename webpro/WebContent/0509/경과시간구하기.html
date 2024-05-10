@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../CSS/public.css"> 
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+#cur{
+	display: inline-block;
+	width: 200px;
+	text-align: center;
+	background: white;
+	font-size: 1.3rem;
+}
+</style>
+<script>
+const today = new Date();
+
+window.onload= function() {
+	document.querySelector('#cur').innerHTML=`${today.toLocaleDateString()}`;
+}
+
+const proc1 = () => {
+	
+	// 현재 날짜 ms
+	let toTime = today.getTime(); 
+	console.log(toTime);
+
+	let bday = new Date("2000.1.1");
+	let bTime =  bday.getTime();
+	
+	// ms의 간격을 구함 현재 - 생일
+	let times = toTime-bTime;
+	
+	// times값으로 몇시간, 몇 년 경과?
+	let year = times/1000/3600/24/365;
+	year = year.toFixed(0);
+	let out = `오늘 : ${today.toLocaleDateString()}<br> 생일 : ${bday.toLocaleDateString()}<br>
+				 경과 년도 : ${year}년`;
+	document.querySelector('#result1').innerHTML=out;
+}
+
+function proc2() {
+	// 현재 날짜 ms
+	let toTime = today.getTime(); 
+	
+	// 100일 후의 ms
+	let day100 = 100 * 24 * 60 * 60 * 1000;
+	
+	// 두 개의 값을 더해서 총 ms를 구한다 - 새로운 날짜 객체를 생성
+	let laterTime = new Date(toTime+day100);
+	
+	let out = `오늘 : ${today.toLocaleDateString()}<br> 생일 : ${laterTime.toLocaleDateString()}`;
+	document.querySelector('#result2').innerHTML=out;
+}
+
+// target : parameter변수, 매개변수, 지역변수
+// 호출시 this 객체 변수를 받은 변수
+function proc3(target) {
+	// 현재 날짜(id=cur)부분의 값을 가져와 getTime()을 얻음
+	curvalue = document.querySelector('#cur').innerText; // 2024.05.09.
+	let curday = new Date(curvalue);
+	// 현재 날짜 ms
+	let toTime = curday.getTime(); //1972년 기준
+	// 1일 후의 ms
+	let day = 1 * 24 * 60 * 60 * 1000;
+	
+	// 두 개의 값을 더해서 총 ms를 구한다 - 새로운 날짜 객체를 생성
+	if(target.value=='다음'){
+		curday = new Date(toTime+day);
+	} else{
+		curday = new Date(toTime-day);
+	}
+	
+	document.querySelector('#cur').innerHTML=`${curday.toLocaleDateString()}`;
+}
+
+function proc4() {
+	// 선택한 날짜를 가져온다
+	bvalue = document.querySelector('#bday').value;
+	let bday = new Date(bvalue);
+	
+	let bTime = bday.getTime();
+	// 1일 후의 ms
+	
+	toTime = today.getTime();
+	
+	let sub = toTime-bTime;
+	sub = sub/1000/60/60/24;
+	
+	console.log(sub);
+	sub = sub.toFixed(0);
+	
+	let out = `구입한 날짜 : ${bday.toLocaleDateString()}<br> 
+				현재 날짜 : ${today.toLocaleDateString()}<br><br>
+				구입한 지 ${sub}일이 지났습니다<br>`;
+				
+	// 두 개의 값을 더해서 총 ms를 구한다 - 새로운 날짜 객체를 생성
+	if(sub>=7){
+		out += `교환불가`;
+	} else{
+		out += `교환가능`;
+	}	
+	document.querySelector('#result4').innerHTML=out;
+}
+</script>
+</head>
+<body>
+
+	<div class="box">
+		<h3>경과시간구하기 - getTime()<br>
+		getTime()은  ms값을 리턴<br>
+		태어난 날로부터 현재까지 몇일 경과했는지</h3>
+		<input type="button" value="확인" onclick="proc1()"> <br> <br>
+
+		<div id="result1"></div>
+	</div>
+	<div class="box">
+		<h3>경과시간구하기 - getTime()<br>
+		getTime()은  ms값을 리턴<br>
+		오늘부터 1일 일때 100일 째 되는 날이 언제일까</h3>
+		<input type="button" value="확인" onclick="proc2()"> <br> <br>
+
+		<div id="result2"></div>
+	</div>
+	<div class="box">
+		<h3>경과시간구하기 - getTime()<br>
+		getTime()은  ms값을 리턴<br>
+		오늘을 기준으로 이전 다음날 구하기<br>
+		id-cur에 오늘 날짜가 출력된다</h3>
+		<input type="button" class="day" value="이전" onclick="proc3(this)">
+		<div id = "cur"></div>
+		<input type="button" class="day" value="다음" onclick="proc3(this)"> <br> <br>
+
+	</div>
+		<div class="box">
+		<h3>경과시간구하기 - getTime()<br>
+		getTime()은  ms값을 리턴<br>
+		구입한 날로부터 현재까지 몇일 경과했는지 구한다<br>
+		7일이상 경과했으면 교환 환불 불가능</h3>
+		구입 날짜 : <input type="date" id="bday">
+		<input type="button" value="확인" onclick="proc4()"> <br> <br>
+
+		<div id="result4"></div>
+	</div>
+</body>
+</html>

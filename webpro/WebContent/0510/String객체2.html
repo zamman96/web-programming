@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../CSS/public.css"> 
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+const str = "String객체 테스트 문자열";
+
+function proc1() {
+	let s1 = str.substring(9,13);
+	let s2 = str.slice(9,13);
+	let s3 = str.substr(9,3);
+	
+	let out = `${str}<br><br> str.substring(9,13) : ${s1} <br>
+		str.slice(9,13) : ${s2} <br> str.substr(9,3) : ${s3}`;
+		
+	document.querySelector('#result1').innerHTML=out;
+}
+function proc2(){
+	// 입력
+input = prompt(`주민등록번호를 입력하세요
+예시) 000101-3234567`);
+	// 추출
+	let yy = input.substr(0,2);
+	let mm = input.substr(2,2)
+	let dd = input.substr(4,2);
+	let genNo = input.substr(7,1);
+
+	let year = 0;
+	// 비교
+	if(genNo==1 || genNo==2){
+		year = 19 + yy;
+	} else {
+		year = 20 + yy;
+	}
+	
+	let gender = "";
+	// 남자 여자 비교
+	if(genNo==1||genNo==3){
+		gender="남자";
+	} else{
+		gender="여자";
+	}
+	
+	today = new Date().getFullYear();
+	//나이
+	let age = today-year;
+	
+	// 출력 내용
+	let out = `주민등록번호 : ${input.substring(0,8)}******<br>
+	생일 : ${year}년 ${mm}월 ${dd}일 <br>
+	성별 : ${gender}<br>
+	나이 : ${age}`;
+	
+	document.querySelector('#result2').innerHTML=out;
+	
+}
+
+function proc3(){
+	// 입력
+input = prompt(`주민등록번호를 입력하세요
+예시) 000101-3234567`);
+
+	// 유효성 검사
+	let str = input.replace("-","");
+	let num = str.split();
+	let no = [2,3,4,5,6,7,8,9,2,3,4,5];
+	console.log(num);
+	
+	let sum = 0;
+	for(let i=0; i<num.length;i++){
+		sum+=parseInt(num[i]*no[i]);
+	}
+	sum = 11 - (sum%11);
+	if(sum==10){
+		sum=0;
+	} else if(sum==11){
+		sum = 1;
+	}
+	
+	let result = "";
+	console.log(input.substr(13,1));
+	console.log(sum);
+	if(input.substr(13,1)!=sum){
+		result = "유효성 검사 실패";
+	} else {
+		result = "유효성 검사 완료"
+	}
+	//
+	
+	
+	// 출력 내용
+	let out = `주민등록번호 : ${input.substring(0,8)}*****${input.substr(13,1)}<br>
+	결과 : ${sum} > ${result}<br>`;
+
+	
+	document.querySelector('#result3').innerHTML=out;
+	
+}
+</script>
+</head>
+<body>
+
+	<div class="box">
+		<h3>문자열 추출<br>
+		slice(start,end); start ~ end-1까지의 문자열 추출<br>
+		substring(start, end) start ~ end-1까지의 문자열 추출<br>
+		substr(start, length) start부터 length길이만큼 추출</h3>
+		<input type="button" value="확인" onclick="proc1()"> <br> <br>
+
+		<div id="result1"></div>
+	</div>
+	
+	<div class="box">
+		<h3>prompt로 주민등록번호를 입력 받아 생년월일과 성별, 나이를
+출력하는 프로그램을 작성하시오.<br>
+예) 주민등록번호를 110326-4432618로 입력 받은 경우<br>
+생일 : 2011년 3월 26일<br>
+성별 : 여자<br>
+나이 : 12<br>
+</h3>
+		<input type="button" value="확인" onclick="proc2()"> <br> <br>
+
+		<div id="result2"></div>
+	</div>
+	<div class="box">
+		<h3>주민등록번호를 입력 받아 주민등록번호의 유효성을 검사하는
+프로그램을 작성하시오.(ABCDEF-GHIJKLM)<br>
+1. A*2 + B*3 + ... + H*9 + I*2 + ... + L*5 의 총합을 구한다.<br>
+2. 1번의 합을 11로 나눈 나머지를 구한다.<br>
+3. 11에서 2번의 결과를 뺀다.<br>
+4. 3번의 결과가 0~9이면 값 그대로, 10이면 0, 11이면 1로 변환<br>
+5. 4번의 결과와 M자리의 값이 같으면 맞는 번호이다.
+</h3>
+		<input type="button" value="확인" onclick="proc3()"> <br> <br>
+
+		<div id="result3"></div>
+	</div>
+</body>
+</html>

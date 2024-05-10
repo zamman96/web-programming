@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../CSS/public.css"> 
+<!-- href="http://ip주소(localhost)/webpro/css/public.css" -->
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	const proc1 = () => {
+		let score = prompt("점수를 입력하세요");
+		//점수범위를 확인
+		if(!(score<=100&&score>=0)){
+			alert("점수 범위에서 벗어났습니다");
+			return;
+		}
+		let num = parseInt((score/10).toFixed(0));
+		switch (num) {
+		case 10:
+			res = "A";
+			break;
+		case 9:
+			res = "A";
+			break;
+		case 8:
+			res = "B";
+			break;
+		case 7:
+			res = "C";
+			break;
+		case 6:
+			res = "D";
+			break;
+		default:
+			res="F";
+			break;
+		}
+		let disp;
+		
+		disp = ` 점수 : ${score} <br>`
+		disp+=`학점 : ${res} <br>`;
+		document.getElementById('result1').innerHTML = disp;
+	}
+	
+</script>
+</head>
+
+<body>
+	<div class="box">
+		<h3>정수 입력(prompt)해서 학점을 계산하는 프로그램</h3>
+		<input type="button" value="확인" onclick="proc1()"> <br> <br>
+
+		<div id="result1"></div>
+	</div>
+
+</body>
+</html>

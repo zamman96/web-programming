@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+#container {
+	display: flex;
+	/* float : left; */
+	background: dodgerblue;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+#container div {
+	background: #f1f1f1;
+	width: 100px;
+	margin: 10px;
+	text-align: center;
+	line-height: 75px;
+	font-size: 30px;
+}
+</style>
+
+</head>
+<body>
+
+	<h3>flex-wrap</h3>
+
+	<form name="fform">
+		<label> <input type="radio" name="fdType" value="wrap" checked>wrap
+		</label> <label> <input type="radio" name="fdType" value="nowrap">nowrap
+		</label> <label> <input type="radio" name="fdType"
+			value="wrap-reverse">wrap-reverse
+		</label>
+	</form>
+
+	<div id="container" class="f-container">
+		<div>1</div>
+		<div>2</div>
+		<div>3</div>
+		<div>4</div>
+		<div>5</div>
+		<div>6</div>
+		<div>7</div>
+		<div>8</div>
+		<div>9</div>
+		<div>10</div>
+
+	</div>
+	
+<script type="text/javascript">
+	let types = document.fform.fdType;
+	
+	//id = container인 요소 접근
+// 	let fcont =document.getElementById('container');
+	let fcont =document.getElementsByClassName('f-container');
+	console.log(fcont);
+	
+	for(let i=0; i<types.length;i++){
+		// 이벤트 핸들러 추가
+		types[i].addEventListener('change', function(){
+// 			fcont.style.flexWrap = types[i].value;
+			fcont.item(0).style.flexWrap=this.value;
+		})
+	}
+</script>
+	
+</body>
+</html>

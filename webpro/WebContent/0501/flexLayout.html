@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>My Blog Page</title>
+<style>
+body *{
+	box-sizing: border-box;
+	margin: 3px;
+	border-radius: 20px;
+}
+#container {
+	display: flex;
+	flex-direction: column;
+	height: 800px;
+}
+
+header {
+	height: 20%;
+	border: 3px dashed teal; 
+	text-align: center;
+	font-weight : bold;
+	display: flex;
+	flex-direction:column;
+	justify-content: center;
+	color : teal;
+}
+
+footer {
+	color:white;
+	font-weight:bold;
+	height: 10%;
+	background: teal;
+	text-align: center;
+	display: flex;
+	flex-direction:column;
+	justify-content: center;
+}
+
+#content {
+	height: 50%;
+	display: flex;
+	flex-direction: row;
+}
+
+aside {
+	border: 15px double white;
+	padding: 20px;
+	background: rgb(150,180,180);
+	/* 	flex : 1 1 auto; */
+	/* 	flex : 1; */ /* 1 1 0 */
+	flex: 30%;
+}
+
+section {
+	border : 15px dotted white;
+	border-left-style :none;
+	border-right-style :none;
+	border-bottom-style :none;
+	padding: 20px;
+	background: rgb(240,245,243);
+	flex: 70%;
+	flex-direction : column;
+}
+figure{
+	text-align: center;
+}
+img{
+	width: 50%;
+}
+.text{
+	height : 46%;
+	border : 3px solid teal;
+ 	background: white; 
+	margin-bottom: 30px;
+	padding: 15px;
+}
+a{
+	color : yellow;
+	text-decoration : none;
+	font-weight: bold;
+}
+a:hover {
+	color:white;
+}
+h1{
+	text-shadow: 1px 1px 2px gray;
+}
+</style>
+</head>
+<body>
+
+	<div id="container">
+		<header>
+		<h1>My Blog Page</h1>
+		<br>
+		시멘틱 태그로 만들어진 페이지 입니다.
+		</header>
+		<div id="content">
+			<aside>
+			<h3>Links</h3>
+			<ul>
+				<li><a href="https://www.w3schools.com/">w3schools</a></li>
+				<li><a href="http://www.naver.com">Naver</a></li>
+				<li><a href="http://www.daum.net">Daum</a></li>
+			</ul>
+			<br>
+			<figure><img src="../images/chopa.jpg"> <br>쵸파</figure>
+			</aside>
+			<section>
+			<div class="text">
+			<h3>Semantic Tags</h3>
+			<br>
+			시멘틱 요소(Semantic elements)들은 브라우저에게 요소의 의미나 목적을 명확하게 알려주는 요소이다. 레이아웃을 만들 때 쓰는 것. 의미가 있는 요소라면 div보다는 시멘틱 태그를 사용해준다.
+			</div>
+			<div class="text">
+			<h3>div와 span</h3>
+			<br>
+			div은 "divide"의 약자로서 페이지를 논리적인 세션으로 분리하는데 사용되는 태그이다. span요소는 인라인 요소로서 텍스트를 위한 컨테이너로 사용될 수 있다.
+			</div>
+			</section>
+		</div>
+		<footer>Copyright (c)2019 Hong</footer>
+	</div>
+
+</body>
+</html>

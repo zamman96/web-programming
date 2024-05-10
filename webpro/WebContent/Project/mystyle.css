@@ -1,0 +1,362 @@
+@charset "UTF-8";
+<!-- rgb(255,211,188) 연한분홍-->
+<!-- rgb(238,99,91) 다홍-->
+<!-- rgb(105,186,210) 청록-->
+<!-- rgb(67,86,138) 남색-->
+
+/* 공통 --------------------------------------------------------------------------------*/
+
+body * {
+	box-sizing: border-box;
+}
+body* :visited{
+	color : white;
+}
+
+body {
+	min-width: 1840px;
+}
+
+#container {
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	height: 1500px;
+}
+
+a{
+	margin-right : 20px;
+	text-decoration: none;	
+}
+a:visited{
+	color:white;
+}
+a:active{
+	color:black;
+	font-weight: bold;
+	text-decoration: underline;
+}
+.button, .cart{
+	text-shadow: 1px 1px 3px rgb(238,99,91);
+	border : 1px solid rgb(244,155,132);
+	border-radius:20px;
+	background: rgb(254,175,152);
+	width: 90px;
+	height: 40px;
+	color:white;
+	text-align: center;
+	margin: 10px;
+	font-size: 1.2rem;
+}
+.button:hover, .cart:hover{
+	background: rgb(238,99,91);
+}
+.button:active, .cart:active{
+	color: black;
+	font-weight: bold;
+}
+
+.button1 {
+	text-shadow: 1px 1px 3px rgb(67,86,138);
+	border : 1px solid rgb(105,186,210);
+	border-radius:20px;
+	background: rgb(105,186,210);
+	width: 90px;
+	height: 40px;
+	color:white;
+	text-align: center;
+	margin: 10px;
+	font-size: 1.2rem;
+}
+.button1:hover{
+	background: rgb(67,86,138);
+}
+.button1:active{
+	color: black;
+	font-weight: bold;
+}
+
+.cart{
+	width: 200px;
+	margin: 0px;
+}
+input{
+	width: 200px;
+}
+
+/* header --------------------------------------------------------------------------*/
+
+header {
+	height: 15%;
+/* 	border: 3px dashed teal; */
+	font-weight: bold;
+	display: flex;
+	text-align: center;
+	flex-direction: column;
+	justify-content: center;
+	color: rgb(255,211,188);
+}
+#shop{
+	color : rgb(105,186,210);
+}
+#titleImage{
+	width: 150px;
+}
+h1>a:visited{
+	color : rgb(255,211,188);
+}
+h1>a{
+	font-size: 100px;
+}
+
+/* nav ------------------------------------------------------------------------------*/
+
+nav {
+	border-color: rgb(105,186,210);
+	border-width: 10px;
+	border-bottom-width: 5px;
+	border-bottom-style: solid;
+	border-top-style: dashed;
+	border-top-color: rgba(105,186,210,20%);
+	margin: 20px;
+	height: 60px;
+	display: flex;
+	align-items: center;
+}
+
+#index li {
+	padding-bottom:5px;
+	float: left;
+	margin-left: 80px;
+	font-size: 1.5rem;
+	color : rgb(67,86,138);
+}
+#index li:hover{
+	color: rgb(67,86,138);
+	font-weight: bold;
+}
+
+#index {
+	letter-spacing: 15px;
+	text-transform: uppercase;
+	height: 70px;
+	display: flex;
+	align-items:center;
+	justify-content: space-between;
+	padding: 10px;
+	list-style: none;
+	padding-top: 20px;
+}
+
+
+/* content -------------------------------------------------------------------------*/
+
+#content {
+	height: 50%;
+	display: flex;
+	flex-direction: row;
+}
+
+/* aside left ----------------------------------------------------------------------*/
+
+aside {
+	text-shadow: 1px 1px 3px rgb(238,99,91);
+	border: 15px double white;
+	background: rgb(255,211,188);
+	/* 	flex : 1 1 auto; */
+	/* 	flex : 1; */ /* 1 1 0 */
+	flex: 20%;
+	position: relative;
+	color: white;
+	border-radius: 10px;
+}
+
+#cate {
+	flex-direction: column;
+	list-style: none;
+	padding-left: 0;
+	padding-top: 40px;
+}
+
+#cate li {
+	background: rgb(254,175,152);
+	height: 40px;
+	font-size : 20px;
+	padding-left: 30px;
+	vertical-align: middle;
+	border: 1px solid rgb(244,155,132);
+}
+#cate li:hover{
+	background: rgb(238,99,91);
+	border-color: rgb(238,99,91);
+}
+#cate li>a:active{
+	color : black;
+	font-weight: bold;
+}
+#cate li>a {
+	color: white;
+	display: block;
+	width: 100%;
+}
+
+/* aside right -----------------------------------------------------------------------*/
+
+#right{
+	padding: 20px;
+	font-size : 20px;
+}
+
+/* section ---------------------------------------------------------------------------*/
+
+article, iframe {
+	width: 100%;
+	height: 100%;
+	background:rgb(248,244,236);	
+	
+}
+
+section {
+	padding: 20px;
+	background: rgb(248,244,236);
+	flex: 80%;
+	flex-direction: column;
+	border-radius: 20px;
+}
+
+#fshop {
+	width: 1050px;
+	height: 960px;
+	display: flex;
+	flex-direction: row;
+	align-content: center;
+	justify-content: space-between;
+	padding: 30px;
+}
+
+.prod{
+	border-radius: 10px;
+	border: 5px inset rgb(255,211,188);
+	width: 200px;
+	height: 60%;
+	padding: 30px;
+	background: white;
+}
+.prodimg{
+	width: 200px;
+	height: 200px;
+}
+audio {
+    width: 200px;
+    height: 30px; 
+}
+#c{
+	width: 100%;
+	height:100%;
+	display: flex;
+	flex-direction: column;	
+}
+#movie{
+	width:448px; 
+	height:252px;
+	margin: 10px auto;
+}
+#mshop{
+	height:70%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+#mshop img{
+	width: 250px;
+	height: 350px;
+}
+/* footer -----------------------------------------------------------------------------*/
+
+footer {
+	margin:10px;
+	color: white;
+	font-weight: bold;
+	height: 5%;
+	background: rgb(105,186,210);
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	border-radius: 10px;
+}
+
+/*register ----------------------------------------------------------------------------*/
+fieldset{
+	border : 15px double rgb(238,99,91);
+	border-radius:20px;
+	padding: 30px;
+	margin: auto;
+	width: 40%;
+	background: white;
+}
+label{
+	display:inline-block;
+	width: 150px;
+	height: 40px;
+}
+#page{
+	text-shadow: 1px 1px 5px white;
+	margin-top: 100px;
+	text-align: center;
+	color: rgb(238,99,91);
+	font-size: 3.0rem;
+}
+legend{
+	font-size: 1.5rem;
+	border: 1px solid rgb(238,99,91);
+	border-radius: 50px;
+	color:white;
+	background: rgb(238,99,91);
+	padding: 10px;
+}
+.otherBody{
+	background: rgb(255,211,188);
+}
+.home{
+	margin-left:1000px;
+	font-size: 1.3rem;
+	font-weight: bold;
+}
+.gender{
+	width: 40px;
+}
+
+/*cart ------------------------------------------------------------------------------*/
+#cartsee{
+	width: 200px;
+}
+
+table{
+	margin-top:30px;
+	border: 5px inset rgb(238,99,91);
+	border-collapse: collapse;
+}
+th{
+	text-shadow: 1px 1px 5px white;
+	height: 30px;
+	width: 200px;
+	background: rgb(255,211,188);
+	color:rgb(238,99,91);
+}
+td{
+	width: 200px;
+	height: 30px;
+}
+.qty{
+	width: 190px;
+	border-style:none;
+} 
+input[class="sum"]{
+	width: 120px;
+	border-style:none;
+}
+#total{
+	border-style:none;
+	
+}

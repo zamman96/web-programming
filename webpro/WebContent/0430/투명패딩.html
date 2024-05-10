@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div{
+	margin : 30px;
+	padding: 40px;
+	border : 20px inset navy;
+	
+	height: 300px;
+	background-image: url(../images/클라우드.png);
+}
+
+p{
+	border : 1px solid black;
+	background: pink;
+	background-image: linear-gradient(45deg, white, skyblue, white);
+}
+h1{
+	width: 50%;
+	height: 60px;
+	border: 1px solid blue;
+	background: lightblue;
+	padding : 10px;
+	text-align: center;
+	vertical-align: center;
+	
+	box-shadow : 20px 15px 3px gray; /*오른쪽  아래  선명도  색*/
+}
+</style>
+</head>
+<body>
+
+<h1>정보처리기사</h1>
+
+<div>
+<p>
+GoF(Gang of Four) 디자인 패턴
+목적으로 분류 시 생성, 구조, 행위로 분류(생구행)
+생 추빌팩프싱 / 구 어브컴데퍼플프 / 행
+	1. 생성 (객체 생성)
+	추상 팩토리 패턴(abstract factory)
+	빌더 패턴(builder)
+	팩토리 메소드 패턴(factory method)
+	        > 상위클래스에서 객체를 생성하는 인터페이스를 정의하고, 하위클래스에서
+           인스턴스를 생성하도록하는 방식
+	프로토타입 패턴(prototype)
+         > prototype을 먼저 생성하고 인스턴스를 복제하여 사용하는 구조
+	싱글톤 패턴(singleton)
+         > 특정 클래스의 인스턴스가 오직 하나임을 보장하고, 
+	            이 인스턴스에 대한 접근방법을 제공
+	
+	2. 구조 (구조 확장성)
+	어댑터 패턴(adapter) 
+        >  기본에 구현되어있는 클래스에 기능 발생 시 기존 클래스를 재사용할 수 있도록
+	            중간에서 맞춰주는 역할
+	브릿지 패턴(bridge)
+        > 구현부에서 추상층을 분리하여 각자 독립적으로 확장이 가능하게하는 패턴      
+	컴포지트 패턴(composite)
+	데코레이터 패턴(decorator)
+	퍼사드 패턴(facade)
+	플라이웨잇 패턴(flysweight)
+	프록시 패턴(proxy)
+	
+	3. 행동(행위) (행위의 변경, 수정) 
+        > 클래스나 객체들이 상호작용하는 방법과 책임을 분산하는 방법 정의
+	역할 사슬 패턴(책임 연쇄, chain of reposibility) 
+	커맨드 패턴(command)
+	인터프리터 패턴(interpreter)
+	이터레이터 패턴(반복자, iterator) 
+	미디에이터 패턴(중재자, mediator)
+        > 객체간의 통제와 지시의 역할을 하는 중재자를 두어 객체지향의 목표를 달성
+	메멘토 패턴(memento)
+	옵저버 패턴(observer)
+	상태 패턴(state)
+	전략 패턴(strategy)
+			Ø 대표적인 행위 패턴, 클라이언트에 영향을 받지않는 독립적인 알고리즘을
+선택하는 패턴
+	템플릿 메소드 패턴(template method)
+비지터 패턴(방문자, visitor)
+</p>
+</div>
+
+</body>
+</html>

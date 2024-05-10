@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../CSS/public.css"> 
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+
+
+const proc1 = op =>{ // 매개변수 1개일 땐 가로 생략가능
+// 전역변수는 매개변수를 넣지않고 씀
+	x = parseInt(document.querySelector('#x').value);
+	y = parseInt(document.querySelector('#y').value);
+	let sum = 0;
+	if(op=='+'){
+		sum = add();
+	} else if(op=='-'){
+		sum = sub();
+	} else if(op=='*'){
+		sum = mul();
+	} else {
+		sum = div();
+		sum = sum.toFixed(2);
+	}
+	
+	document.querySelector('#sum').value = sum;
+	
+	document.querySelector('#sp1').innerText = x;
+	document.querySelector('#sp2').innerText = y;
+	document.querySelector('#sp3').innerText = sum;
+	
+}
+
+const add = () =>{
+	return x+y;
+}
+const sub = () =>{
+	return x-y;
+}
+const mul = () =>{
+	return x*y;
+}
+const div = () =>{
+	return x/y;
+}
+</script>
+</head>
+<body>
+
+	<div class="box">
+		<h3></h3>
+		
+		x : <input id="x"><br>
+		y : <input id="y"><br>
+		결과 : <input id="sum"><br><br>
+		
+		<input type="button" value="확인+" onclick="proc1('+')">
+		<input type="button" value="확인-" onclick="proc1('-')"> 
+		<input type="button" value="확인*" onclick="proc1('*')"> 
+		<input type="button" value="확인/" onclick="proc1('/')"> 
+		<br> <br>
+
+		<div id="result1"></div>
+		<p>첫번째 값 : <span id="sp1"></span></p>
+		<p>두번째 값 : <span id="sp2"></span></p>
+		<p>결과 : <span id="sp3"></span></p>
+	</div>
+</body>
+</html>

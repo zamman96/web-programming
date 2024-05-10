@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div{
+	border : 1px solid blue;
+	width: 200px;
+	height: 40px;
+	
+	display : none;
+}
+input[value=확인1]{
+	display: none;
+}
+
+</style>
+<script type="text/javascript">
+function showdiv() {
+	// div요소를 검색
+	let div = document.querySelector('div');
+	
+	// div style를 변경
+	div.style.display = 'block';
+	
+	// 확인1인 요소를 검색
+	let value1 = document.querySelector('input[value=확인1]');
+	value1.style.display = 'inline-block';
+}
+
+/* 
+const showdiv = function() { }
+const showdiv = () => { } 
+*/
+
+</script>
+</head>
+<body>
+<button onclick="showdiv()">확인</button>
+<br><br>
+<div>
+	<p>다람쥐 헌 쳇바퀴에 올라타</p>
+</div>
+<br>
+<input type="button" value="확인1"> 
+<input type="button" value="확인2"> 
+</body>
+</html>

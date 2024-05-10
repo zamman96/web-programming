@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../CSS/public.css"> 
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+const arr = ["사과", "키위", "레몬","사과", "자몽", "토마토", "사과","멜론","수박"]
+
+function proc1(){
+	let fruit = "바나나";
+	// 사과위치 찾기
+// 	let vidx = arr.indexOf(fruit);
+	let vidx = arr.lastIndexOf(fruit);
+	
+	let out = `찾는 과일 ${fruit}은 <br>`;
+	
+	if(vidx==-1){
+		out+= "배열에 없습니다<br>";
+	} else {		
+	out += ` ${vidx}번째에 있습니다<br>`;
+	}
+	document.getElementById('result1').innerHTML = out;
+}
+
+function proc2(){
+	
+	let fruit = "망고";
+ 	let vidx = 0;
+ 	let str = "";
+	
+	// 사과위치 찾기
+	while(true){
+		vidx = arr.indexOf(fruit, vidx);
+		if(vidx==-1){
+			break;
+		}
+		str += vidx+" ";
+		vidx++; // 다음 인덱스부터 검색하기 위해 인덱스를 증가시킴
+	}
+	
+	let out = `찾는 과일 ${fruit}는 <br>`;
+	
+	if (str !== "") {
+        out += `${str}번째에 있습니다<br>`;
+    } else {
+        out += "해당 과일을 찾을 수 없습니다<br>";
+    }
+	document.getElementById('result2').innerHTML = out;
+}
+
+function proc3(){
+	
+	let out = `원래 배열 : ${arr} <br>`;
+	
+	let input = prompt("과일 입력");
+	arr.push(input);
+	
+	out+=`추가된 배열 : ${arr} <br>`;
+	
+	document.getElementById('result3').innerHTML = out;
+}
+
+function proc4(){
+	
+	let out = `원래 배열 : ${arr} <br>`;
+	
+	let vpop = arr.pop();
+	
+	out+=`꺼낸 배열 : ${arr} <br>
+		 꺼낸 문자 : ${vpop}`;
+		
+	document.getElementById('result4').innerHTML = out;
+}
+
+function proc5(){
+	
+	let newarr = arr.slice(1,5);
+	
+	let out = `원래 배열 : ${arr} <br>`;
+	
+	
+	out+=`추출한 배열: ${newarr} <br>`;
+		
+	document.getElementById('result5').innerHTML = out;
+}
+
+function proc6(){
+	
+	let out = `원래 배열 : ${arr} <br>`;
+	arr.splice(1,2,"배추","오이","청경채");
+	
+	
+	
+	out+=`수정된 배열: ${arr} <br>`;
+		
+	document.getElementById('result6').innerHTML = out;
+}
+
+function proc7(){
+	let out = `arr배열의 길이 : ${arr.length} <br>`;
+	let str = arr.join(" : ");
+	
+	out += `text의 길이 : ${str.length} <br>`;
+	
+	document.getElementById('result7').innerHTML = out;
+	
+// 	for(let i=0; i<arr.length; i++){
+// 		console.log(`${i} : ${arr[i]}`)
+// 	}
+	
+	arr.forEach(function(ar, index){
+		console.log(`${index} : ${ar}`);
+	})
+
+// 	for(int i=0; i<str.length; i++){
+// 		console.log(`${i} : ${str[i]}`)
+// 	}
+	
+}
+
+</script>
+</head>
+<body>
+
+	<div class="box">
+		<h3>요소 찾기<br>indexof(item,start), lastIndexof(item, start)</h3>
+		<input type="button" value="확인" onclick="proc1()"> <br> <br>
+		<h3>같은 이름의 과일을 모두 찾기</h3>
+		<input type="button" value="확인" onclick="proc2()"> <br> <br>
+
+		<div id="result1"></div>
+		<div id="result2"></div>
+	</div>
+	
+	<div class="box">
+		<h3>요소 추가/제거<br>push(item1, item2, item3 ...) pop()</h3>
+		<input type="button" value="push" onclick="proc3()"> <br> <br>
+		<h3>같은 이름의 과일을 모두 찾기</h3>
+		<input type="button" value="pop" onclick="proc4()"> <br> <br>
+
+		<div id="result3"></div>
+		<div id="result4"></div>
+	</div>
+	
+	<div class="box">
+		<h3>요소 추출<br>slice(start, end) : 1~ end-1 까지의 값을 추출한다</h3>
+		<input type="button" value="push" onclick="proc5()"> <br> <br>
+
+		<div id="result5"></div>
+	</div>
+	<div class="box">
+		<h3>요소 추출<br>splice(index, n, a,b,c...) : index 위치에서 n개를 삭제하고 a, b, c.. 를 추가/삽입한다</h3>
+		<input type="button" value="push" onclick="proc6()"> <br> <br>
+
+		<div id="result6"></div>
+	</div>
+	<div class="box">
+		<h3>요소 추출<br>join() : 배열을 문자열로 변환한다</h3>
+		<input type="button" value="push" onclick="proc7()"> <br> <br>
+
+		<div id="result7"></div>
+	</div>
+</body>
+</html>

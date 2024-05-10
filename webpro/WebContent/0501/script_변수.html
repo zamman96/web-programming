@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div{
+	height: 100px;
+	border : 2px solid pink;
+	margin: 20px;
+	padding: 30px;
+	font-size: 2.0rem;
+}
+</style>
+<script>
+const fncProc1 = () =>{
+	var v1 = "홍길동";
+	let v2 = "개나리";
+	const v3 = "진달래";
+	
+	// 출력내용 변수
+// 	let disp = "v1 = " +v1+"<br> v2 = "+v2+"<br> v3 = "+v3;
+	var disp = `v1 = ${v1} <br> v2 = ${v2} <br> v3 = ${v3}`;
+	
+	document.getElementById('result1').innerHTML = disp;
+	
+	v1="이순신";
+	v2="라일락"; 	// 재 선언은 불가능하나 값 변경 가능
+	// Assignment to constant variable.
+// 	v3="바닐라";	// 재 선언 & 값 변경 불가능
+	var disp = `v1 = ${v1} <br> v2 = ${v2} <br> v3 = ${v3}`;
+	
+	document.getElementById('result1').innerHTML = disp;
+}
+</script>
+</head>
+<body>
+<div id='result1'>
+
+</div>
+<input type="button" value="확인" onclick="fncProc1()">
+
+</body>
+</html>

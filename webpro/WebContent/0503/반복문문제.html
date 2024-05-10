@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../CSS/public.css"> 
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+const proc3 = () => {
+	let sum = 0;
+	let str = "" // 문자열 나열
+	while(true){
+		input = parseInt(prompt("숫자를 입력하세요 멈추고싶다면 0을 입력하세요"));
+		
+		if(input==0){
+			break;
+		}
+		str += ` ${input} `
+		sum += input;
+	}
+	let out = `더한 합 : ${str} = ${sum}`;
+	
+	// 츨력
+	document.getElementById("result1").innerHTML=out;
+
+}
+
+const proc5 = () =>{
+	
+}
+</script>
+</head>
+<body>
+
+	<div class="box">
+		<h3>숫자입력</h3>
+		<input type="button" value="확인" onclick="proc5()"> <br> <br>
+
+		<div id="result1"></div>
+	</div>
+</body>
+</html>
