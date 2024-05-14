@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../CSS/public.css"> 
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+img{
+	width : 100px;
+	height : 100px;
+}
+</style>
+<script>
+let present = null;
+const proc1 = (target) =>{
+	// 시작버튼 클릭시 this파라미터를 받은 지역변수
+		btn = target;
+		target.style.display = "none";
+	st = setInterval(function(){
+		if(present!=null){
+			present.style.border = "none";
+		}
+		vres = document.getElementById('result1');
+		let img = vres.firstChild;
+		
+		imglist = document.querySelectorAll('img');
+		
+		present = imglist[4];
+		
+		// appendChild로 이동하므로 remove하지 않아도됨
+// 		vres.removeChild(img);
+		vres.appendChild(img);
+		present.style.border = "10px double red";
+		
+	},50);
+}
+
+const stop = () => {
+	btn.style.display = "inline";
+	clearInterval(st);
+}
+</script>
+</head>
+<body>
+
+	<div class="box">
+		<h3>appendChild()의 기능<br>1. 새로운 요소를 생성하여 추가 기능<br>2. 이미 존재하는 요소를 이동기능</h3>
+		<div id="result1">
+		<img src="../images/수국1.jpg">
+		<img src="../images/수국2.jpg">
+		<img src="../images/수국3.jpg">
+		<img src="../images/수국4.jpg">
+		<img src="../images/수국5.jpg">
+		<img src="../images/수국6.jpg">
+		<img src="../images/수국7.jpg">
+		<img src="../images/수국8.jpg">
+		<img src="../images/수국9.jpg">
+		</div>
+		<input type="button" value="시작" onclick="proc1(this)"> 
+		<input type="button" value="종료" onclick="stop()"> <br> <br>
+		<h3>종료버튼을 클릭하면 선택한 한 개를 당첨</h3>
+
+	</div>
+</body>
+</html>

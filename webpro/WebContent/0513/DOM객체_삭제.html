@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../CSS/public.css"> 
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+const arr = ["수업", "1시", "6시", "POI", "JAVA", "HELLO", "JAVASCRIPT"]
+function add() {
+	// 랜덤 발생
+	let ran = parseInt(Math.random()*arr.length);
+	
+	// 문자열 선택
+	
+	// 선택된 문자열로 textNode생성
+	let text = document.createTextNode(arr[ran]);
+	
+	// p태그 생성
+	let ptag = document.createElement('p');
+	
+	// p태그에 text추가
+	ptag.appendChild(text);
+	
+	let vre = document.getElementById('result1');
+	vre.appendChild(ptag);
+	
+}
+
+function remove() {
+	let re = document.getElementById('result1').lastChild;
+	document.getElementById('result1').removeChild(re);
+}
+</script>
+</head>
+<body>
+
+	<div class="box">
+		<h3>랜덤으로 문자열을 발생<br>p태그 생성 - 부모 - createElement('p')<br>문자열textNode생성 - 자식 - createTextNode(문자열)<br>
+		부모.appendChild(자식)- p태그에 문자열을 추가<br>p태그를 id=result1(부모)<br> result1에 p태그를 추가 </h3>
+		<input type="button" value="추가" onclick="add()">
+		<h3>삭제<br>삭제할 기준 선택 : firstChild 위에서 부터, lastChild 아래에서 부터</h3>
+		<input type="button" value="삭제" onclick="remove()"> <br> <br>
+
+		<div id="result1"></div>
+	</div>
+</body>
+</html>

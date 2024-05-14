@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../CSS/public.css"> 
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+function proc1() {
+	vu1 = document.querySelector('#u1');
+	list = vu1.querySelectorAll('li'); // 속해있는 li만 가져옴
+	
+	// 누적변수 선언
+	let str ="";
+	/*
+	for(i=0;i<list.length; i++){
+		str +=list[i].firstChild.data + "<br>";
+	}
+	*/
+	list.forEach(function(ele, idx){
+		str += ele.firstChild.data+"<br>";
+	})
+	
+	document.querySelector('#result1').innerHTML = str;
+}
+function proc2() {
+	vu2 = document.querySelector('#u2');
+	list = vu2.querySelectorAll('li'); // 속해있는 li만 가져옴
+	let disp = "";
+	
+	// li 갯수 만큼 반복 - 반복시 대상 li는 ele변수로 받는다
+	list.forEach(function(ele, idx){
+		// img 태그 생성
+		vimg = document.createElement('img');
+		// img 태그의 속성을 설정
+		vimg.src="../images/"+ele.firstChild.data;
+		vimg.alt=ele.firstChild.data;
+		vimg.width = 50;
+		vimg.height = 50;
+		
+		// 부모.appendChild(자식img)
+		
+		ele.appendChild(vimg);
+		
+// 		disp += `<img src="../images/${ele.firstChild.data}" width=300 height=300>`;
+	})
+}
+
+function proc3(target){
+// 	target: proc3(this)호출 시 this개체를 받은 변수
+//	this : 클릭한 li객체
+
+// data값 가져오기 - 이미지 이름
+	vdata = target.firstChild.data;
+	
+	//태그 생성
+	vimg = document.createElement('img');
+	
+	// 속성
+	vimg.src="../images/"+vdata;
+	vimg.alt=vdata;
+	vimg.width = 50;
+	vimg.height = 50;
+	vimg.style.borderRadius = "50%";
+	
+	target.appendChild(vimg);
+}
+</script>
+</head>
+<body>
+
+	<div class="box">
+		<h3></h3>
+		<ul id='u1'>
+			<li>List Item 1</li>
+			<li>List Item 2</li>
+			<li>List Item 3</li>
+			<li>List Item 4</li>
+			<li>List Item 5</li>
+		</ul>
+		<input type="button" value="확인" onclick="proc1()"> <br> <br>
+
+		<div id="result1"></div>
+	</div>
+	<div class="box">
+		<h3></h3>
+		<ul id='u2'>
+			<li>Tulips.jpg</li>
+			<li>셔틀콕.jpg</li>
+			<li>crismasth.jpeg</li>
+			<li>Koala.jpg</li>
+			<li>studycom.jpg</li>
+		</ul>
+		<input type="button" value="확인" onclick="proc2()"> <br> <br>
+
+	</div>
+	<div class="box">
+		<h3> &lt;li onclick="proc3(this)"><br> 각 li항목에 onclick=""이벤트 핸들러 설정</h3>
+		<ul id='u3'>
+			<li onclick="proc3(this)">Tulips.jpg</li>
+			<li onclick="proc3(this)">셔틀콕.jpg</li>
+			<li onclick="proc3(this)">crismasth.jpeg</li>
+			<li onclick="proc3(this)">Koala.jpg</li>
+			<li onclick="proc3(this)">studycom.jpg</li>
+		</ul>
+	</div>
+</body>
+</html>

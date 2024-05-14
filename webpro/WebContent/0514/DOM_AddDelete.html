@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../CSS/public.css"> 
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+const arr = ["수업", "1시", "6시", "POI", "JAVA", "HELLO", "JAVASCRIPT"]
+
+const proc1 = () => {
+	console.log(this);
+	let ran = parseInt(Math.random()*arr.length);
+	
+	let text = document.createTextNode(arr[ran]+" ");
+	
+	// 삭제 버튼 생성 - input tag
+	vinput = document.createElement('input');
+	
+	vinput.type = "button";
+	vinput.value = "삭제";
+	vinput.onclick = deleteProc; // 함수를 불러오고 싶다면 함수의 참조값만 사용
+	/*
+ 	vinput.onclick = function() {
+	// 클릭한 삭제버튼을 this로 받아서 그 부모를 찾는다 -> ptag
+	console.log(this);
+ 		let target = this.parentNode;
+ 		target.remove();
+	}
+ 	// 화살표 함수를 쓴다면 스크립트 안에서 쓰는 this는 window
+ 	// 그러므로 function를 사용하도록함
+ 	*/
+	
+	let ptag = document.createElement('p');
+	
+	ptag.appendChild(text);
+	ptag.appendChild(vinput);
+	
+	let vres = document.getElementById('result1');
+	
+	vres.appendChild(ptag);
+}
+
+function deleteProc() {
+	let target = this.parentNode;
+		target.remove();
+}
+</script>
+</head>
+<body>
+
+	<div class="box">
+		<h3></h3>
+		<input type="button" value="추가" onclick="proc1()"> 
+
+		<div id="result1"></div>
+	</div>
+</body>
+</html>

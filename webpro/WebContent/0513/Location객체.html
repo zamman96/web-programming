@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<link rel="stylesheet" href="../CSS/public.css">
+
+<script>
+
+const proc1 = () => {
+   
+   let disp = `href : ${location.href} <br>`;
+   disp += `host : ${location.host} <br>`;
+   disp += `hostname : ${location.hostname} <br>`;
+   disp += `port : ${location.port} <br> `;
+   disp += `protocol : ${location.protocol} <br>`;
+   
+   document.querySelector('#result1').innerHTML = disp;
+   
+}
+
+const hrefChange = () => {
+   
+   location.href = "timeout_interval.html";
+   
+}
+
+const assign = () => {
+   
+   location.assign("timeout_interval.html");
+   
+}
+
+const replace = () => {
+   
+   location.replace("timeout_interval.html");
+   
+}
+
+const fnreload = () => {
+   
+   // 랜덤으로 발생되는 문자열을 result2에 출력
+   // 1초후에 원래 문서로 돌아온다.
+   arr = ["Hello", "javascript",
+         "Good", "사랑은 늘 도망가", "이제 나만 믿어요", "우리들의 블루스"];
+   
+   rand = parseInt(Math.random() * arr.length);
+   
+   // 문자열 선택 - arr[rand];
+   vres = document.querySelector('#result2');
+   vres.innerHTML = arr[rand];
+   vres.style.color = 'red';
+   vres.style.fontSize = '2.0 rem';
+   
+   setTimeout(function(){
+      
+      location.reload();
+      
+   }, 1000);
+   
+}
+</script>
+
+</head>
+<body>
+
+<div class="box">
+   
+   <h3>location객체 <br>
+      URL정보를 가진 객체 <br>
+      href = url 전체정보 </h3>
+   <input type="button" value="확인" onclick="proc1()">
+   <br><br>
+
+   <div id="result1"></div>
+   
+   <input type="button" value="이동" onclick="hrefChange()">
+   
+   <h3>href="timeout_interval.html"</h3>
+   <a href="timeout_interval.html">이동</a>
+   
+   <h3> a href 에서 script의 함수 호출  href="javascript:hrefChange()"</h3>
+   <a href="javascript:hrefChange()">이동</a>
+   
+   <h3>a태그에서 onclick="hrefChange()"</h3>
+   <a href="#" onclick="hrefChange()">이동</a>
+   
+   <h3>서버로 보내기 onclick="location.href='href.jsp?id=a001'"</h3>
+	<a href="#" onclick="location.href='href.jsp?id=a001'">서버로 get</a>
+
+</div>
+
+<div class="box">
+   
+   <h3>location객체 <br>
+      URL정보를 가진 객체 <br>
+      href = url 전체정보 <br>
+      assign() : 새로운 문서 로드/히스토리 남김/뒤로가기 가능 <br>
+      replace() : 새로운 문서로 대체/히스토리 남기지 않음/뒤로가기 불가 </h3>
+   <input type="button" value="assign" onclick="assign()">
+   <input type="button" value="replace" onclick="replace()">
+   <input type="button" value="reload" onclick="fnreload()">
+   <br><br>
+
+   <div id="result2"></div>
+
+</div>
+
+</body>
+</html>

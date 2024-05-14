@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../CSS/public.css"> 
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+let si = null;
+// let gbtn;
+// const proc1 = () => {
+	
+// 	setTimeout(function(){
+// 		document.querySelector('#result1').style.backgroundColor="black";
+// 	// 1초 경과 후에 실행
+// 	},1000)
+// }
+
+function fnTime(){
+	document.querySelector('#result1').style.backgroundColor="black";
+}
+const proc1 = () => {
+	
+	// 별도로 작성된 함수 참조값 형식
+	setTimeout(fnTime,1000);
+}
+ 
+// 호출시 this객체를 받은 파라미터 변수 > 지역변수
+const proc2 = btn => {
+	
+	// 확인 버튼을 숨기기
+	btn.style.display="none";
+	
+	// btn 변수는 지역변수 다른 함수에서는 사용불가
+	// 다른 함수에서 사용하기 위해서 btn을 전역변수로 전환해야한다.
+	gbtn = btn;		// 변수 선언 생략시에도 전역변수
+	
+	si = setInterval(function(){
+	console.log(si);
+	let cr = parseInt(Math.random()*256);
+	let cg = parseInt(Math.random()*256);
+	let cb = parseInt(Math.random()*256);
+	
+	let vcolor = `rgb(${cr},${cg},${cb})`;
+		document.querySelector('#result2').style.backgroundColor=vcolor;
+	// 1초 경과 후에 실행
+	},1000)
+	
+}
+function stop() {
+	
+	// 확인 버튼을 보이도록 설정
+ 	gbtn.style.display = "inline";
+
+	// 실행을 종료 - setInterval수행 시 | 리턴된 변수 이용
+	clearInterval(si);
+	
+}
+
+const proc3 = (btn) => {
+	btn.style.display="none";
+	gbtn = btn;
+	timerId = setTimeout(function change(){
+		
+		let cr = parseInt(Math.random()*256);
+		let cg = parseInt(Math.random()*256);
+		let cb = parseInt(Math.random()*256);
+		
+		// 16진수로 변환
+		cr = cr.toString(16);
+		cg = cg.toString(16);
+		cb = cb.toString(16);
+		
+		// #fff1d9
+		
+		let vcolor = `#${cr}${cg}${cb}`;
+		console.log(vcolor);
+			document.querySelector('#result3').style.backgroundColor=vcolor;
+		
+		timerId = setTimeout(change, 1000);
+	}, 1000)
+}
+
+const timestop = () => {
+	gbtn.style.display="inline";
+	clearTimeout(timerId);
+}
+</script>
+</head>
+<body>
+
+	<div class="box">
+		<h3>setTimeout(function(){},millisec)<br>
+		시간이 경과하면 function() 실행된 후 종료<br>
+		1초 후에 result1의 배경색을 변경</h3>
+		<input type="button" value="확인" onclick="proc1()"> <br> <br>
+
+		<div id="result1"></div>
+	</div>
+	
+	<div class="box">
+		<h3>setInterval(function(){},millisec)<br>
+		시간이 경과할 때 마다 function()이 실행<br>
+		종료하기 위해서는 clearInterval(변수)<br>
+		1초가 경과할 때 마다 result2의 배경색을 변경
+		</h3>
+		<input type="button" value="확인" onclick="proc2(this)">
+		<input type="button" value="종료" onclick="stop()"> <br> <br>
+
+		<div id="result2"></div>
+	</div>
+	
+		<div class="box">
+		<h3>중첩 setTimeout(function() 이름{  setTimeout(이름)},millisec)<br>
+		시간이 경과할 때 마다 function()이 실행<br>
+		setInterval() 처럼 반복적으로 실행</h3>
+		<input type="button" value="확인" onclick="proc3(this)">
+		<input type="button" value="종료" onclick="timestop()"> <br> <br>
+
+		<div id="result3"></div>
+	</div>
+</body>
+</html>
