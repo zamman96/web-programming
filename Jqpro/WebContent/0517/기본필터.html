@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../CSS/public.css">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://localhost/Jqpro/js/jquery-3.7.1.js"></script>
+<script>
+	$(function(){
+		$('#btn1').on('click', function() {
+			$('#result1 li:first,li:last').css("background","yellow");
+			
+			// index=5 배경 빨강
+			$('#result1 li:eq(5)').css("background","red");
+			
+			// four보다 작은 값 글자 크게 li값에 4번째 index는 포함하지 않음 
+			$('#result1 li:lt(4)').css("font-size","2rem");
+		})
+		
+		$('#btn2').on('click', function() {
+			$('#result2 ul').css("list-style","none");
+			$('#result2 li:even').css("background","gray");
+			$('#result2 li').css("text-align","center");
+			
+			$('#result2 li:first').css({"background":"black","color":"white"
+				,"font-size":"2.0rem"});
+		})
+	})
+</script>
+</head>
+<body>
+
+	<div class="box">
+		<h3>기본필터<br>
+		:first / :last / :eq(index) / :gt(index) / :lt(index)</h3>
+		<input type="button" value="확인" id="btn1"> <br> <br>
+
+		<div id="result1">
+			<ul>
+				<li>one</li>
+				<li>two</li>
+				<li>three</li>
+				<li>four</li>
+				<li>five</li>
+				<li>six</li>
+				<li>seven</li>
+				<li>eight</li>
+				<li>nine</li>
+			</ul>
+		</div>
+	</div>
+	
+	<div class="box">
+		<h3>기본필터<br>
+		:even / :odd</h3>
+		<input type="button" value="확인" id="btn2"> <br> <br>
+
+		<div id="result2">
+			<ul>
+				<li>one</li>
+				<li>two</li>
+				<li>three</li>
+				<li>four</li>
+				<li>five</li>
+				<li>six</li>
+				<li>seven</li>
+				<li>eight</li>
+				<li>nine</li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

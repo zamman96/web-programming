@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../CSS/public.css"> 
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://localhost/Jqpro/js/jquery-3.7.1.js"></script>
+<script>
+// 문자열 배열
+const arr = ["쭈니", "애플", "아잠만", "리처드", "뽀야미", "케찹", "귀오미"];
+
+$(function(){
+	
+	// id = btn1검색 이벤트
+	$('#btn1').on('click', function(){
+	// 랜덤
+	let ran = parseInt(Math.random()*arr.length);
+		// 새로운 p태그 생성
+// 		let ptag = $('<p onclick="proc1()" class="pp">'+ arr[ran] +'</p>');	
+		// ''와 ""를 중복되서 사용X id는 중복되어 나중에 이벤트 적용이 안될 수도 있으므로 class로 생성
+		// <p/> = <p> </p>
+		let ptag = $('<p/>',{
+			"text" : arr[ran],
+			"class" : "pp",
+			"click" : function(){
+				alert($(this).text());
+			}
+		})
+				
+		
+		// result1에 추가
+		ptag.appendTo($('#result1'));
+	})
+})
+
+const proc1 = () =>{
+	alert("hello");
+}
+</script>
+</head>
+<body>
+
+	<div class="box">
+		<h3></h3>
+		<input type="button" value="확인" id="btn1"> <br> <br>
+
+		<div id="result1"></div>
+	</div>
+</body>
+</html>

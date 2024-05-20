@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../CSS/public.css"> 
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://localhost/Jqpro/js/jquery-3.7.1.js"></script>
+<script>
+$(function(){
+	// button을 선택 - 이벤트 핸들러
+	$('input[type=button]').on('click',function(){
+		//title을 갖고 있는 요소 선택
+		$('p[title]').css("font-size","2rem");
+		
+		//title=무궁화
+		$('p[title=무궁화]').css("background","pink");
+		
+		//class=jin
+		$('p[class=jin]').css("background","green");
+		
+		//class=p로 시작
+		$('p[class^=pp]').css("color","red");
+		
+		//title가 화로 끝나는 요소 선택
+		$('p[title$=화]').css("background","pink");
+		
+		// title에 꽃이라는 글자가 포함된 요소
+		$('p[title*=꽃]').css("background","teal");
+		
+		// title에 꽃이라는 단어가 포함된 요소
+		$('p[title~=꽃]').css("background","blue");
+	})
+	
+})
+</script>
+</head>
+<body>
+
+	<div class="box">
+		<h3></h3>
+		<input type="button" value="확인"> <br> <br>
+
+		<div id="result1"></div>
+		<p title="무궁화">무궁화 꽃이 피었습니다</p>
+		<p class="jin">진달래 꽃이 피었습니다</p>
+		<p title="수선화" class="pp1">수선화 꽃이 피었습니다</p>
+		<p title="라일락">라일락 꽃이 피었습니다</p>
+		<p class="pp2">개나리 꽃이 피었습니다</p>
+		<p class="pp3" title="백장미 꽃">백장미 꽃이 피었습니다</p> <!-- 글자 (*) -->
+		<p class="pp3" title="장미꽃">들장미 꽃이 피었습니다</p> <!-- 단어 포함 (~) -->
+		<p class="pp4">봉선화 꽃이 피었습니다</p>
+	</div>
+</body>
+</html>

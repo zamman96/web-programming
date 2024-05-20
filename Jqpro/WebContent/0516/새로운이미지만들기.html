@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../CSS/public.css"> 
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://localhost/Jqpro/js/jquery-3.7.1.js"></script>
+<script>
+const arr=["image.1.jpg", "image.2.jpg", "image.3.jpg", "image.4.jpg", "image.5.jpg", "image.6.jpg", "image.7.jpg"]
+
+const proc1 = () => {
+	let ran = parseInt(Math.random()*arr.length);
+	
+// 	let vimg = $(`<img src='../images/${arr[ran]}' onclick='procImg(this)'>`)
+	let vimg = $('<img>', {
+		"src" : "../images/"+arr[ran],
+		"click" : imgBorder
+	})
+	
+	// id=result1에 추가
+	vimg.appendTo($('#result1'));
+}
+function procImg(target) {
+	$(target).css("border","3px solid teal");
+}
+function imgBorder() {
+	$(this).css("border","3px solid gray");
+}
+</script>
+<style>
+img {
+	width: 100px;
+	height: 100px;
+}
+</style>
+</head>
+<body>
+
+	<div class="box">
+		<h3></h3>
+		<input type="button" value="이미지 만들기" onclick="proc1()"> <br> <br>
+
+		<div id="result1"></div>
+	</div>
+</body>
+</html>

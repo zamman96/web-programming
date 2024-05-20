@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../CSS/public.css"> 
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.7.1.js"></script>
+
+<script>
+const proc1 = () => {
+	
+	// script 코드
+// 	document.getElementById('result1').innerText = "Hello";
+	
+	// jQuery 코드
+	 $('#result1').html('Hello');
+// 	 jquery('#result1').html('Hello');
+	
+	
+}
+</script>
+</head>
+<body>
+
+	<div class="box">
+		<h3>result1을 검색해서 hello출력</h3>
+		<input type="button" value="확인" onclick="proc1()"> <br> <br>
+
+		<div id="result1"></div>
+	</div>
+</body>
+</html>

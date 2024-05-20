@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../CSS/public.css">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://localhost/Jqpro/js/jquery-3.7.1.js"></script>
+<script>
+$(function(){
+	$('#btn1').on('click',function(){
+		// checkbox를 선택
+// 		$('input[type=checkbox]:checked');
+// 		$('input:checkbox:checked');
+
+		// 누적변수
+		let str = "";
+		$(':checkbox:checked').val()
+		$(':checkbox:checked').each(function(i, k){
+// 			str += $(':checkbox:checked').eq(i).val()+" ";
+			str += $(this).val()+" ";
+// 			str += $(k).val()+" ";
+		});
+		alert(str);
+	})
+})
+
+</script>
+</head>
+<body>
+
+	<div class="box">
+		<h3>필터 => :checked<br>
+		선택된 요소 중 첫 번째꺼만 리턴 .val() <br>
+		선택된 요소를 리턴받으려면 반복문 사용</h3>
+		<input type="button" value="확인" id="btn1"> <br> <br>
+
+		<div id="result1">
+
+			<form>
+			취 미 : 
+			<input type="checkbox" name="hobby" value="여행">여행
+			<input type="checkbox" name="hobby" value="장기">장기 
+			<input type="checkbox" name="hobby" value="바둑">바둑 
+			<input type="checkbox" name="hobby" value="게임" checked>게임 
+			<input type="checkbox" name="hobby" value="음악감상" checked>음악감상 
+			<input type="checkbox" name="hobby" value="독서">독서 
+			<input type="checkbox" name="hobby" value="낚시">낚시<br>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

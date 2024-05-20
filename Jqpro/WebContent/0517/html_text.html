@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../CSS/public.css"> 
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+span{
+	background: gray;
+}
+</style>
+<script src="http://localhost/Jqpro/js/jquery-3.7.1.js"></script>
+<script>
+function proc1() {
+	// body안의 모든 내용 가져오기 - 태그 포함
+	// body태그 검색
+// 	alert($('body').html());
+	
+	// body안의 모든 내용 가져오기 - 태그 제외
+	// body태그 검색
+	alert($('body').text());
+}
+
+function proc2() {
+	// p태그 첫번째만 검색
+// 	alert($('p').html());
+	
+	let str = "";
+	let out = "";
+	// 모든 p태그를 대상으로 할때는 반복문을 사용한다
+	// i : index    k : p[0], p[1], p[2]
+// 	$('p').each(function(i, k){
+	$.each($('p'), function(i,k){
+		
+// 		str+=$('p').eq(i).html()+"\n";
+
+		// 가져오기 html태그 포함 (<span>)
+// 		str += $(k).html()+"\n";
+// 		out += $(this).html() + "<br>";
+		
+		// 가져오기 html태그 포함X
+		str += $(k).text()+"\n";
+		out += $(this).text() + "<br>";
+	})
+	
+	// result2
+	$('#result2').html(out);
+// 	$('#result2').text(out);
+	
+	alert(str);
+	// 모든 p태그 대상으로 문자만 가져옴
+// 	alert($('p').text());
+}
+</script>
+</head>
+<body>
+	<div class="box">
+		<h3>html() : 태그를 포함한 내용 가져오기 - 첫번째 거만 가져옴 - innerHTML<br>
+		text() : 태그를 뺀 전체 내용만 가져오기 - 전체 - innerText <br></h3>
+		<input type="button" value="확인" onclick="proc1()"> <br> <br>
+
+		<div id="result1">
+		<p><span>다람쥐</span>가 챗바퀴에 올라타</p>
+		<p><span>청설모</span>가 챗바퀴에 올라타</p>
+		<p><span>햄스터</span>가 챗바퀴에 올라타</p>
+		</div>
+		<input type="button" value="확인" onclick="proc2()"> <br> <br>
+		<div id="result2">
+		</div>
+	</div>
+</body>
+</html>

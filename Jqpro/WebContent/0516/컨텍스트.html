@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../CSS/public.css"> 
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://localhost/Jqpro/js/jquery-3.7.1.js"></script>
+<script>
+
+$(function(){
+	// $(선택자, [컨텍스트])
+// 	let vp = $('form:eq(1) p');
+	let vp = $('p',document.forms[0]);	// form 태그 안에 있는 index 1번째의 p태그
+	vp.css('color','red');
+	
+	// class = 'dd'를 클릭하면 그 자식 p태그를 검색
+	$('.dd').on('click', function(){
+		$('p', this).css('background','lightgray');
+	})
+})
+
+</script>
+</head>
+<body>
+
+	<div class="box">
+		<h3>컨텍스트 : 검색 범위 지정
+		div class=dd를 클릭하면 클릭한 곳 자식 p태그 검색</h3>
+		<input type="button" value="확인" onclick="proc1()"> <br> <br>
+		<p> 무궁화 꽃이 피었습니다 </p>
+		<div id="result1" class='dd'>
+			<p>햇빛이 선명하게 나뭇잎을 핥고 있었다</p>
+		</div>
+		<div id="result2" class='dd'>
+			<p>햇빛이 선명하게 나뭇잎을 핥고 있었다</p>
+		</div>
+		
+		<form>
+			<p>이웃집 토토로</p>
+		</form>
+		<form>
+			<p>센과 치히로의 행방불명</p>
+		</form>
+	</div>
+</body>
+</html>

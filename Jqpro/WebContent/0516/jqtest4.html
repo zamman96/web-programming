@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../CSS/public.css">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://localhost/Jqpro/js/jquery-3.7.1.js"></script>
+<script>
+	$(document).ready(function(){
+		// id의 onclick 이벤트 핸들러 작성
+		$('#btn1').on('click', proc1)
+	})
+	
+	const proc1 = () => {
+		$('#result1').css('background-color',"yellow");
+		$('#result1').css('border',"5px outset yellow");
+		$('#result1').css('width','50%');
+		
+		$('h1').css('color','blue');
+		$('#para').css('color','green');
+		$('.sample').css('color','red');
+	}
+</script>
+</head>
+<body>
+
+	<div class="box">
+		<h3></h3>
+		<input type="button" value="onclick" onclick="proc1()"> <br> <br>
+		<input type="button" value="idbtn" id="btn1"> <br> <br>
+
+		<div id="result1">
+			<h1>제목입니다</h1>
+			<h2 id="para">작은 제목입니다</h2>
+			<h2 class="sample">샘플입니다</h2>
+		</div>
+	</div>
+</body>
+</html>

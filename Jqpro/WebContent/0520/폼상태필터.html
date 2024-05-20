@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../CSS/public.css">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+#change2{
+	display : none;
+}
+</style>
+<script src="http://localhost/Jqpro/js/jquery-3.7.1.js"></script>
+<script>
+	$(function() {
+		$('#btn1').on('click', function() {
+			// 사용가능한 요소 선택
+			$('#result1 form *:enabled').css("border","double teal");
+			
+			// 사용 불가능한 요소 선택
+			$('#result1 form *:disabled').css("border","double maroon");
+		})
+		
+		// 버튼을 클릭하면 select요소의 속성을 변경한다 - enabled속성
+		$('#change1').on('click',function(){
+			
+			// select를 검색 - 사용가능한 요소로 변경 - prop('속성이름', '속성값')
+			// 속성값 : true / false
+			$('#result1 select').prop('disabled',false); // 사용가능 요소로 변경
+// 			$('#result1 select').prop('disabled',true); // 사용불가능 요소로 변경
+
+			$(this).hide();
+			$('#change2').show();
+		})
+		
+		$('#change2').on('click',function(){
+			
+			$('#result1 select').prop('disabled',true); // 사용불가능 요소로 변경
+			$(this).hide()
+			$('#change1').show();
+		})
+		
+	})
+</script>
+</head>
+<body>
+
+	<div class="box">
+		<h3>
+		요소의 상태값을 변경 - prop()
+		</h3>
+		<input type="button" value="확인" id="btn1"> <br> <br>
+
+		<div id="result1">
+			<form action="폼상태필터.jsp" method="post">
+				<input type="text"name="id" placeholder="아이디 입력" value="a001" disabled><br> 
+				<input type="password" name="pass" placeholder="비밀번호 입력"><br> 
+					<select name="disSelect" disabled> <!-- disabled 사용 불가능 -->
+						<option>Option1</option>
+						<option>Option2</option>
+						<option>Option3</option>
+						<option>Option4</option>
+					</select> <br>
+					<input type="button" value="변경" id="change1">
+					<input type="button" value="변경" id="change2">
+					<br>
+				<textarea name="enTextarea" rows=10 cols=20>text</textarea>
+				<br> <input type="button" value="확인 " onclick="alert('hello')" disabled> <br>
+				<br> <input type="submit" value="제출 "> <br>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
