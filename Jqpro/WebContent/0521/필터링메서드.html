@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../CSS/public.css">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://localhost/Jqpro/js/jquery-3.7.1.js"></script>
+<script>
+$(function(){
+	$('#btn1').on('click', function(){
+// 		$('p:first').css('color','red')
+// 		$('p').first().css('color','red')
+		$('p').filter(':first').css('color','red')
+		
+// 		$('p:even').css('background','silver');
+// 		$('p').even().css('background','silver');
+		$('p').filter(':even').css('background','silver');
+		
+	})
+})
+</script>
+</head>field
+<body>
+
+	<div class="box">
+		<h3>
+		p.first() / p:first<br>
+		p.last() / p:last<br>
+		p.even() / p:even</h3>
+		<input type="button" value="확인" id="btn1"> <br> <br>
+
+		<div id="result1">
+			<p>무궁화 꽃이 피었습니다1</p>
+			<p>무궁화 꽃이 피었습니다2</p>
+			<p>무궁화 꽃이 피었습니다3</p>
+			<p>무궁화 꽃이 피었습니다4</p>
+			<p>무궁화 꽃이 피었습니다5</p>
+			<p>무궁화 꽃이 피었습니다6</p>
+			<p>무궁화 꽃이 피었습니다7</p>
+			<p>무궁화 꽃이 피었습니다8</p>
+		</div>
+	</div>
+</body>
+</html>

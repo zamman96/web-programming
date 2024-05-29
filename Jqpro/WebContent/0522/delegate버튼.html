@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../CSS/public.css"> 
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://localhost/Jqpro/js/jquery-3.7.1.js"></script>
+<script>
+let num = 1;
+$(function(){
+	
+	$('#add').on('click',function(){
+		let vbtn = $('<input>',{
+			"class" : "add",
+			"type" : "button",
+			"value" : `새로운버튼${num++}`
+		})
+		
+		$('#result1').append(vbtn);
+	});
+	
+	$(document).on('click','.add', function(){
+		let vr = parseInt(Math.random()*256);
+		let vg = parseInt(Math.random()*256);
+		let vb = parseInt(Math.random()*256);
+		
+		$('#result2').css('background', `rgb(${vr},${vg},${vb})`);
+	})
+	// 해제 버튼 이벤트 핸들러
+	$('#stop').on('click', function(){
+		$('#add').off('click');
+	});
+	
+})
+
+</script>
+</head>
+<body>
+
+	<div class="box">
+		<h3>새롭게 추가된 새로운 버튼은 이벤트 핸들러가 실행되지 않는다</h3>
+		<input type="button" value="추가" id="add">
+		<input type="button" value="해제" id="stop">
+		 <br> <br>
+		<div id="result1"></div>
+		<div id="result2"></div>
+	</div>
+</body>
+</html>

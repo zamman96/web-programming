@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../CSS/public.css"> 
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://localhost/Jqpro/js/jquery-3.7.1.js"></script>
+<script>
+const xhr = new XMLHttpRequest();
+$(function(){
+	$('#asybut').on('click',function(){
+		// 입력한 이름과 전화번호 가져오기
+		let vname = $('#name').val();
+		if(vname.length < 1){
+			alert("이름을 입력하세요");
+			return;
+		}
+		console.log(vname);
+		
+		let vtel = $('#tel').val();
+		if(vtel.length < 1){
+			alert("전화번호를 입력하세요");
+			return;
+		}
+		console.log(vtel);
+		
+		// 요청
+		// 띄어쓰기 없이 작성할 것
+		data = `name=${vname}&tel=${vtel}`;
+		console.log(data);
+		xhr.open('post', 'test1.jsp', true);
+		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xhr.send(data);
+		
+		// 응답
+		xhr.onreadystatechange = function(){
+			if(this.readyState == 4 && this.status == 200){
+				console.log("응답성공");
+				
+				res = this.responseText;
+				
+				$('#result1').html(res);
+			};
+		}
+	})
+})
+
+</script>
+</head>
+<body>
+
+	<div class="box">
+		<h3>비동기 전송과 동기 전송</h3>
+		비동기 전송 : 페이지 이동없이 결과를 출력 result1번에 출력<br>
+		동기 전송 : 페이지를 다시 로드하여 결과를 받는다
+		<form action="test1.jsp" method="post">
+		
+		이름 <input name="name" id="name"><br>
+		전화번호 <input name="tel" id="tel"><br>
+		
+		<br><br>
+		
+		<input type="submit" value="동기" id="btn1"> 
+		<input type="button" value="비동기" id="asybut"> <br> <br>
+		
+		</form>
+		<div id="result1"></div>
+	</div>
+</body>
+</html>

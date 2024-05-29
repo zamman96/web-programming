@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../CSS/public.css">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://localhost/Jqpro/js/jquery-3.7.1.js"></script>
+<style>
+img{
+	width : 100px;
+	height: 100px;
+}
+</style>
+<script>
+function proc1(target){
+	
+}
+$(function(){
+// 	domp = document.getElementsByTagName('p');
+// 	for(i=0;i<domp.length;i++){
+// 		domp[i].addEventListener('click',function(){
+// 			console.log(this.getAttribute('title'));
+// 		})
+// 	}
+	
+	
+	$('.p').on('click',function(){
+		let name = $(this).attr('title');
+		vimg = $('<img>',{
+			"src" : `../images/${name}.jpg`,
+			"alt" : name+".jpg"
+		})
+		
+// 		$(this).append(vimg);	// vimg.appendTo($(this))
+// 		$(this).prepend(vimg);	// vimg.prependTo($(this))
+// 		$(this).after(vimg);	// vimg.insertAfter($(this))
+		$(this).before(vimg);	// vimg.insertBefore($(this))
+	})
+})
+</script>
+</head>
+<body>
+
+	<div class="box">
+		<h3>p태그를 클릭하면 이미지 추가</h3>
+		<br> <br>
+		<h4>&lt;p onclick="proc1(this)"></h4>
+		<p onclick="proc1(this)" title="Tulips">튜울립</p>
+		<p onclick="proc1(this)" title="Chrysanthemum">국화</p>
+		<p onclick="proc1(this)" title="Koala">코알라</p>
+		<p onclick="proc1(this)" title="Hydrangeas">수국</p>
+		<br>
+		<h4>jQuery - $('p').on('click')</h4>
+		<p class="p" title="Tulips">튜울립</p>
+		<p class="p" title="Chrysanthemum">국화</p>
+		<p class="p" title="Koala">코알라</p>
+		<p class="p" title="Hydrangeas">수국</p>
+	</div>
+</body>
+</html>

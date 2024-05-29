@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../CSS/public.css"> 
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://localhost/Jqpro/js/jquery-3.7.1.js"></script>
+<script>
+$(function(){
+	$('#btn1').click(function(){
+		
+	})
+	$('#btn1').on('click',function(){
+		$('#result1').empty();
+	})
+	$('#btn2').on('click',function(){
+		$('#result2').remove();
+	})
+	$('#btn3').on('click',function(){
+		$('#result1 p').remove();
+	})
+	$('#btn4').on('click',function(){
+		$('#result1 p').remove('#p1');
+	})
+})
+</script>
+</head>
+<body>
+
+	<div class="box">
+		<h3>empty : result1의 내용을 지우기<br>
+		remove : result2을 지우기<br>
+		p_remove : result1의 모든 p태그를 지우기<br>
+		p_remove_id : result1의 p태그를 지우기</h3>
+		<input type="button" value="empty" id="btn1"> 
+		<input type="button" value="remove" id="btn2">
+		<input type="button" value="p_remove" id="btn3"> 
+		<input type="button" value="p_remove_id" id="btn4"> <br> <br>
+
+		<div id="result1">
+			<p id="p1">무궁화꽃이 피었습니다1</p>
+			<p id="p2">무궁화꽃이 피었습니다2</p>
+			<p id="p3">무궁화꽃이 피었습니다3</p>
+		</div>
+		<hr>
+		<div id="result2">
+			<p>무궁화꽃이 피었습니다1</p>
+			<p>무궁화꽃이 피었습니다2</p>
+			<p>무궁화꽃이 피었습니다3</p>
+		</div>
+	</div>
+</body>
+</html>

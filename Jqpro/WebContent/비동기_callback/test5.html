@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../CSS/public.css"> 
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://localhost/Jqpro/js/jquery-3.7.1.js"></script>
+<script>
+
+// 비동기 처리(게시판 리스트 가져오기) 후 후처리를 콜백(게시판을 출력)을 통해서 처리
+function main(fncall) {
+	setTimeout(function(){
+		console.log("게시판 리스트 가져오기")
+		// 콜백함수를 호출
+		fncall()
+	}, 2000);
+}
+
+// main함수 호출 - 인자로 function을 전달한다
+main(function(){
+	console.log("게시판 리스트 출력하기");
+});
+
+</script>
+</head>
+<body>
+
+	<div class="box">
+		<h3></h3>
+		<input type="button" value="확인" id="btn1"> <br> <br>
+
+		<div id="result1"></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../CSS/public.css"> 
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://localhost/Jqpro/js/jquery-3.7.1.js"></script>
+<style>
+img{
+	width: 100px;
+	height: 100px;
+}
+</style>
+<script>
+$(function() {
+	$('#btn1').on('click',function(){
+		// 전체 이미지를 대상으로 같은 값을 title속성 값을 설정
+// 		$('img').attr('title', '이미지');
+		
+		$('img').attr('title', function(){
+			// src 속성값 가져오기
+			let vsrc = $(this).attr('src');
+// 			vsrc = vtit.slice(10,vtit.length-4);
+
+			// 2번째 /와 마지막 .의 위치를 알아내기
+			let start = vsrc.lastIndexOf("/")+1;
+			let end = vsrc.lastIndexOf(".");
+			
+			let vtitle = vsrc.slice(start, end);
+
+			return vtitle;
+		});
+		
+	})
+})
+</script>
+</head>
+<body>
+
+	<div class="box">
+		<h3>img의 src의 이름을 추출하여 title속성으로 추가하기</h3>
+		<input type="button" value="확인" id="btn1"> 
+		<br> <br>
+
+		<div id="result1">
+		<img src="../images/국화1.jpg" alt="국화1">
+		<img src="../images/국화2.jpg" alt="국화2">
+		<img src="../images/국화3.jpg" alt="국화3">
+		<img src="../images/국화4.jpg" alt="국화4">
+		<img src="../images/국화5.jpg" alt="국화5">
+		<img src="../images/국화6.jpg" alt="국화6">
+		</div>
+	</div>
+</body>
+</html>

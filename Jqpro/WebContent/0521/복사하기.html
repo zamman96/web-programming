@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../CSS/public.css"> 
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://localhost/Jqpro/js/jquery-3.7.1.js"></script>
+<script>
+$(function(){
+	// p태그의 이벤트 - 글자크기 확대
+	$('p').on('click',function(){
+		$(this).css("font-size","+=3px");
+	})
+	
+	$('#btn1').on('click',function(){
+		let vp1 = $('#p1').clone();
+		$('#result2').append(vp1);
+	})
+	
+})
+</script>
+</head>
+<body>
+
+	<div class="box">
+		<h3>p태그에 대한 이벤트 설정<br>
+		result1의 p태그를 result2으로 복사<br>
+		clone(true) 적용시 이벤트를 포함해서 복사한다</h3>
+		<input type="button" value="clone" id="btn1"> <br> <br>
+		<input type="button" value="clone(true)" id="btn2"> <br> <br>
+
+		<div id="result1">
+			<p id="p1">무궁화 꽃이 피었습니다1</p>
+			<p id="p2">무궁화 꽃이 피었습니다2</p>
+		</div>
+		
+		<div id="result2">
+
+		</div>
+	</div>
+</body>
+</html>

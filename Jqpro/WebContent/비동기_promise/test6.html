@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../CSS/public.css">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://localhost/Jqpro/js/jquery-3.7.1.js"></script>
+<script>
+function getData(){
+	const promi = new Promise((resolve, reject)=>{
+		setTimeout(function(){
+			const data = {name : "거위"}
+// 			const data = null;
+		if(data){ // 데이터가 있으면 true
+			console.log("데이터 가져오기 성공");
+			resolve(data);
+			}else{
+			reject(new Error("데이터 가져오기 실패"));
+			}
+		},1000)
+	})
+	return promi;
+}
+
+// 여러번 반복적으로 실행 (콜백지옥 해결방법)
+/* getData()
+.then(function(data){
+	console.log(data.name);
+	return getData();
+})
+.then(function(data){
+	console.log(data.name);
+	return getData();
+})
+.then(function(data){
+	console.log(data.name);
+	return getData();
+})
+.catch(function(err){
+	console.log(err);
+})
+.finally(function(){
+	console.log('마무리 작업')
+}) */
+
+// then()함수의 콜백 함수 내의 문장이 한 문장이라면 자동으로 return된다
+// 간단하게 표현 가능
+getData()
+.then((data) => getData())
+.then((data) => getData())
+.then((data) => console.log(data))
+.catch((err) =>console.log(err))
+.finally(()=> console.log('마무리 작업'));
+
+//콜백 함수로 호출 (callback hell)
+/* getData((data)=>{
+	getData((data)=>{
+		getData(data)=>{
+			...
+		})
+	})
+}) */
+</script>
+</head>
+<body>
+
+	<div class="box">
+		<h3></h3>
+		<input type="button" value="확인" id="btn1"> <br> <br>
+
+		<div id="result1"></div>
+	</div>
+</body>
+</html>

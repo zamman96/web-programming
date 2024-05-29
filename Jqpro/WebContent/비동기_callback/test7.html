@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../CSS/public.css">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://localhost/Jqpro/js/jquery-3.7.1.js"></script>
+<script>
+// 로그인 - 장바구니 - 결제하기
+
+// 로그인 함수 정의
+function login(username, fncall){
+	setTimeout( ()=>{ 
+			fncall(username); 
+		}, 2000)
+	}
+	
+// 장바구니 함수 정의
+function addToCart(product, fncall){
+	setTimeout(()=>{ 
+			fncall(product); 
+		}, 3000)
+	}
+	
+// 결제함수 정의
+function makePayment(cardNo, product, fncall){
+		setTimeout(()=>{
+			fncall(cardNo, product); 
+		},1000)
+	}
+/*----- 결과오류
+login('오리')
+console.log(`${username}님 안녕하세요`);
+addToCart('감자');
+console.log(`${product}를 장바구니에 넣었습니다`);
+makePayment('123412341234','감자')
+console.log(`${cardNumber.slice(0,4)}*******으로 ${product}를 구매 했어요`);
+*/
+
+/* 호출순서와 응답순서는 다르다(비동기)
+login('오리',username =>{
+		console.log(`${username}님 안녕하세요`);	
+})
+
+addToCart('감자',product => {
+			console.log(`${product}를 장바구니에 넣었습니다`);
+})
+
+makePayment('123412341234','감자',(cardNumber, product) =>{
+				console.log(`${cardNumber.slice(0,4)}*******으로 ${product}를 구매 했어요`);
+})
+*/
+
+// 장바구니 결제 > 리뷰작성 > 쿠폰받기
+login('오리',username =>{
+	console.log(`${username}님 안녕하세요`);	
+	addToCart('감자',product => {
+		console.log(`${product}를 장바구니에 넣었습니다`);
+		makePayment('123412341234','감자',(cardNumber, product) =>{
+			console.log(`${cardNumber.slice(0,4)}*******으로 ${product}를 구매 했어요`);
+			/*
+			review('맛나는 감자',function(){
+				console.log(`내가 쓴 리뷰 : ${review}`);
+				getCoupon(function(){
+					
+				})
+			})
+			콜백 지옥 */
+		})
+	})
+})
+</script>
+</head>
+<body>
+
+	<div class="box">
+		<h3></h3>
+		<input type="button" value="확인" id="btn1"> <br> <br>
+
+		<div id="result1"></div>
+	</div>
+</body>
+</html>

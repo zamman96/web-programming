@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../CSS/public.css"> 
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://localhost/Jqpro/js/jquery-3.7.1.js"></script>
+<script>
+const xhr = new XMLHttpRequest();
+$(function(){
+	$('#jobj').on('click', function(){
+		// 서버로부터 jsonobj데이터를 응답 받는 비동기 처리
+		xhr.open('get', 'jobj.jsp');
+		xhr.send();
+		
+		// 응답 - jobj.jsp가 요청에 의해서 실행된 후 생성된 결과를 가져온다
+		xhr.onload = function(){
+			if(this.readyState == 4 && this.status == 200){
+				// 데이터 응답 받기 - 응답 데이터의 형식 json객체 형식의 문자열				
+				let res = this.responseText;
+
+				// res 자바스크립트 객체로 변환 - JSON.parse(json형식의 텍스트 데이터)
+				res = JSON.parse(res);
+				
+				code = `<p>이름 : ${res.name} </p>
+				<p>주소 : ${res.addr}</p>
+				<p>전화번호 : ${res.tel}</p>`;
+				
+				$('#result1').html(code);
+			};
+		}
+	})
+	
+	$('#jobjarr').on('click', function(){
+		// 서버로부터 jsonobj데이터를 응답 받는 비동기 처리
+		xhr.open('get', 'jobarr.jsp');
+		xhr.send();
+		
+		// 응답 - jobj.jsp가 요청에 의해서 실행된 후 생성된 결과를 가져온다
+		xhr.onload = function(){
+			if(this.readyState == 4 && this.status == 200){
+				// 데이터 응답 받기 - 응답 데이터의 형식 json객체 형식의 문자열				
+				let res = this.responseText;
+
+				// res 자바스크립트 객체로 변환 - JSON.parse(json형식의 텍스트 데이터)
+				res = JSON.parse(res); // json object 배열
+				let code="";
+				
+		/* 		for(i=0; i<res.length; i++){
+					code += `<p><<${(i+1)}번째 회원>></p>
+					<p>이름 : ${res[i].name} </p>
+					<p>주소 : ${res[i].addr}</p>
+					<p>전화번호 : ${res[i].tel}</p><br>`;
+				} */
+				
+/* 				res.forEach(function(data){
+					
+					code += `<p>이름 : ${data.name} </p>
+						<p>주소 : ${data.addr}</p>
+						<p>전화번호 : ${data.tel}</p><br>`;
+				}) */
+				
+			 	$.each(res, function(i, v){
+					code += `<p>이름 : ${v.name} </p>
+						<p>주소 : ${v.addr}</p>
+						<p>전화번호 : ${v.tel}</p><br>`;
+				}) 
+				/* 
+			 	$.each(res, function(){
+					code += `<p>이름 : ${this.name} </p>
+						<p>주소 : ${this.addr}</p>
+						<p>전화번호 : ${this.tel}</p><br>`;
+				}) */ 
+				
+				$('#result2').html(code);
+			}
+		}
+	})
+	
+})
+</script>
+</head>
+<body>
+
+	<div class="box">
+		<h3></h3>
+		<input type="button" value="jsonobj" id="jobj"> <br> <br>
+		<input type="button" value="jsonobjarr" id="jobjarr"> <br> <br>
+
+		<div id="result1"></div>
+		<div id="result2"></div>
+	</div>
+</body>
+</html>

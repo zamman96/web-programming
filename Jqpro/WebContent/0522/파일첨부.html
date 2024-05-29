@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../CSS/public.css"> 
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://localhost/Jqpro/js/jquery-3.7.1.js"></script>
+<style>
+label{
+	display : inline-block;
+	width : 50px;
+}
+</style>
+<script>
+$(function(){
+	$('#add').on('click',function(){
+// 		vlabel = $('<label>',{
+// 			"text" : "파일"
+// 		});
+// 		vfile = $('<input>',{
+// 			"type" : "file"
+// 		});
+// 		vbtn = $('<input type="button" value="삭제" class="remove">');
+// 		vp = $('<span>')
+		
+// 		$(vp).append(vlabel);
+// 		$(vp).append(vfile);
+// 		$(vp).append(vbtn);
+// 		$(vp).append('<br>');
+		
+		vp = $(`<p><input type="file"> <input type="button" value="삭제" class="remove"></p>`);
+		
+		$('#result1').append(vp);
+	})
+	
+	$(document).on('click','.remove',function(){
+		$(this).parent().remove();
+	})
+})
+</script>
+</head>
+<body>
+
+	<div class="box">
+		<h3></h3>
+		<div id="result1">
+			<label>이름</label> 
+			<input>
+			<br>
+			<label>파일</label>
+			<input type="file"> <input type="button" value="추가" id="add"> <br>
+		</div>
+	</div>
+</body>
+</html>

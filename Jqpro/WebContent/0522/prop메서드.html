@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../CSS/public.css">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://localhost/Jqpro/js/jquery-3.7.1.js"></script>
+<script>
+$(function(){
+	$('#btn1').on('click',function(){
+		// 현재의 상태값을 가져온다
+		let vchk = $('#checkTest').prop('checked');
+		let vread = $('#txtTest').prop('readonly');
+		let vbtn = $('#runBtn').prop('disabled');
+		let vsel = false;
+
+		let num = 0;
+		while(true){
+			vsel = $('#selTest option').eq(num).prop('selected');
+			if(vsel){
+				$('#selTest option').eq(num).prop('selected',false);
+				$('#selTest option').eq(num).next().prop('selected',true);
+				break;
+			}
+			num++;
+		}
+		
+		$('#checkTest').prop('checked',!vchk);
+		$('#txtTest').prop('readonly',!vread);
+		$('#runBtn').prop('disabled',!vbtn);
+	})
+	
+	$('#check').on('change',function(){
+		let vchk = $(this).prop('checked');
+		$('.chk').prop('checked',vchk);
+	})
+})	
+</script>
+</head>
+<body>
+
+	<div class="box">
+		<h3>실행버튼 클릭할때마다 각 상태값을 선택과 해제(true/false)로<br>
+			번갈아가면서 변경</h3>
+		<input type="button" value="실행" id="btn1"> <br> <br>
+
+		<div id="result1">
+			<form>
+				체크박스(라디오버튼) : <input type="checkbox" id="checkTest" checked>
+				<br><br> 리스트박스(select객체) :
+				
+				<select id="selTest">
+					<option value="1">하나</option>
+					<option value="2">둘</option>
+					<option value="3" selected >셋</option>
+					<option value="4">넷</option>
+				</select><br>
+				<br> text객체 (readonly) : <input type="text" value="가나다" id="txtTest"><br>
+				<br> button객체(disabled) : <input type="button" value="실행" id="runBtn" onclick="alert('Hello')">
+			</form>
+		</div>
+	</div>
+	
+	<div class="box">
+		<h3>전체선택의 상태 값으로 1~5 의 상태값을 설정</h3>
+		<div id="result2">
+			<form>
+				체크박스(전체선택/해제) : <br>
+				<input type="checkbox" id="check"> 전체선택
+				<input type="checkbox" class="chk">1
+				<input type="checkbox" class="chk">2
+				<input type="checkbox" class="chk">3
+				<input type="checkbox" class="chk">4
+				<input type="checkbox" class="chk">5
+			</form>
+		</div>
+	</div>
+</body>
+</html>

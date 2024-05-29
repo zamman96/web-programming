@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../CSS/public.css"> 
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://localhost/Jqpro/js/jquery-3.7.1.js"></script>
+<script>
+const arr = [ "image.1.jpg", "image.2.jpg", "image.3.jpg", "image.4.jpg",
+	"image.5.jpg", "image.6.jpg", "image.7.jpg" ]
+	
+$(function() {
+	$('#btn1').on('click', function() {
+		ran = parseInt(Math.random() * arr.length);
+		
+		// 이미지 객체 (요소) 생성
+		vimg = $('<img>', {
+			"src" : `../images/${arr[ran]}`,
+			"alt" : arr[ran]
+		})
+		
+// 		vimg.insertAfter($('#result1'));
+		$('#result1').after(vimg);
+	})
+	
+	$('#btn2').on('click', function() {
+		ran = parseInt(Math.random() * arr.length);
+		
+		// 이미지 객체 (요소) 생성
+		vimg = $('<img>', {
+			"src" : `../images/${arr[ran]}`,
+			"alt" : arr[ran]
+		})
+		
+// 		vimg.insertBefore($('#result2'));
+		$('#result2').before(vimg);
+	})
+})
+</script>
+</head>
+<body>
+
+	<div class="box">
+		<h3></h3>
+		<input type="button" value="after" id="btn1"> 
+		<input type="button" value="before" id="btn2"> <br> <br>
+
+		<div id="result1">
+			<p>이미지 추가하기 - 요소 뒤 - after</p>
+		</div>
+		<hr>
+		<div id="result2">
+			<p>이미지 추가하기 - 요소 앞 - before</p>
+		</div>
+	</div>
+</body>
+</html>

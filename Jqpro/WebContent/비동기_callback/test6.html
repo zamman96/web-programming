@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../CSS/public.css"> 
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://localhost/Jqpro/js/jquery-3.7.1.js"></script>
+<script>
+
+// 비동기 처리(게시판 리스트 가져오기) 후 후처리를 콜백(게시판을 출력)을 통해서 처리
+function getData(fncall) {
+	setTimeout(function(){
+		console.log("서버에서 데이터 받아옴"); 
+		// 서버에서 데이터 히어로를 받아왔다고 가정
+		fncall({name : "히어로"});
+	}, 2000);
+}
+
+// main함수 호출 - 인자로 function을 전달한다
+getData(function(data){
+	console.log(`후처리 데이터 ${data.name}`);
+});
+
+	// 오류 발생
+/*
+function getData() {
+	setTimeout(function(){
+		console.log("서버에서 데이터 받아옴"); 
+		// 서버에서 데이터 히어로를 받아왔다고 가정
+		vname = "오리";
+	}, 2000);
+}
+
+getData();
+console.log(`결과데이터 : ${vname}`);
+*/
+</script>
+</head>
+<body>
+
+	<div class="box">
+		<h3></h3>
+		<input type="button" value="확인" id="btn1"> <br> <br>
+
+		<div id="result1"></div>
+	</div>
+</body>
+</html>

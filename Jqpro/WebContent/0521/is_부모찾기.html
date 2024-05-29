@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../CSS/public.css"> 
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://localhost/Jqpro/js/jquery-3.7.1.js"></script>
+<script>
+$(function(){
+	$('p').on('click',function(){
+		let vp = $(this).parent();
+		if(vp.is('.dd')){
+			let vp2 = $(this).clone().css("color","red");
+// 			vp2.appendTo(vp).css("color","red");
+			$(this).after(vp2);
+		}else{
+			alert("작업대상이 아닙니다");
+		}
+	})
+})
+</script>
+</head>
+<body>
+
+	<div class="box">
+		<h3>a.is(b) : a가 b 일치 판단 true/ false 리턴<br>
+		p태그를 클릭하면 부모가 .dd인지 비교</h3>
+
+		<div id="result1" class="dd">
+			<p>무궁화 꽃이 피었습니다</p>
+		</div>
+		
+		<p>수업이 곧 끝난당</p>
+		
+		<div id="result2" class="dd">
+			<p>시험 얼마 안남았다</p>
+		</div>
+		
+	</div>
+</body>
+</html>

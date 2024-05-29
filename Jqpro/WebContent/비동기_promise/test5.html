@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../CSS/public.css"> 
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://localhost/Jqpro/js/jquery-3.7.1.js"></script>
+<script>
+function getData(){
+	const promi = new Promise((resolve, reject)=>{
+		setTimeout(function(){
+// 			const data = {name : "거위"}
+			const data = null;
+		if(data){ // 데이터가 있으면 true
+			console.log("데이터 가져오기 성공");
+			resolve(data);
+		}else{
+			reject(new Error("데이터 가져오기 실패"));
+		}
+		},1000)
+	})
+	return promi;
+}
+
+const promi = getData();
+
+// resolve함수 호출시 data를 넘겨서 promi의 then()함수의 콜백함수에서 받음
+promi
+.then(function(data){
+	console.log(data.name);
+})
+// reject함수 호출시 err를 넘겨서 promi의 catch()함수의 콜백함수에서 받음
+.catch(function(err){
+	console.log(err);
+})
+.finally(function(){
+	console.log('성공 실패 모두 실행되는 마무리 작업')
+})
+
+</script>
+</head>
+<body>
+
+	<div class="box">
+		<h3></h3>
+		<input type="button" value="확인" id="btn1"> <br> <br>
+
+		<div id="result1"></div>
+	</div>
+</body>
+</html>

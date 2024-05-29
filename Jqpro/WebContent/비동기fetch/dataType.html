@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../CSS/public.css"> 
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://localhost/Jqpro/js/jquery-3.7.1.js"></script>
+<style>
+.res{
+	display: flex;
+}
+.res div{
+	box-sizing : border-box;
+	flex : 25%;
+}
+</style>
+<script>
+window.onload= function(){
+	$('#text').on('click', function(){
+		fetch('text.jsp')
+		.then(function(response){
+			console.log("response", response);
+			if(!response.ok){
+				throw new Error(`오류발생 : ${response.status}`);
+			}
+			return response.text(); // 결과를 text로 받음
+		})
+		.then(function(data){
+			//data는 결과를 text로 받은 변수
+			console.log("data", data);
+			let arr = data.split("/");
+			console.log(arr);
+			res = `<ul>`;
+			for(i=0; i<arr.length;i++){
+				res+=`<li>${arr[i]}</li>`;
+			}
+			res += `</ul>`;
+			$('#result1').html(res);
+		})
+	})
+	$('#obj').on('click', function(){
+		fetch('jobj.jsp')
+		.then(function(response){
+			console.log("response", response);
+			if(!response.ok){
+				throw new Error(`오류발생 : ${response.status}`);
+			}
+			return response.json(); // 결과를 json으로 받음
+		})
+		.then(function(data){
+			//data는 결과를 text로 받은 변수
+			console.log("data", data);
+			let str = `<p>이름 : ${data.name} </p>
+					<p>주소 : ${data.addr}</p>
+					<p>전화번호 : ${data.tel}</p><hr color="gray">`;
+			$('#result2').html(str);
+			})
+	})
+  	$('#arr').on('click', function(){
+		fetch('jsonarr.jsp')
+		.then(function(response){
+			console.log("response", response);
+			if(!response.ok){
+				throw new Error(`오류발생 : ${response.status}`);
+			}
+			return response.json();  // 결과를 json으로 받음
+		})
+		.then(function(data){
+			//data는 결과를 text로 받은 변수
+			console.log("data", data);
+			res = `<ol>`;
+			for(i=0; i<data.length;i++){
+				res+=`<li>${data[i]}</li>`;
+			}
+			res += `</ol>`;
+		
+			$('#result3').html(res);
+		})
+	}) 
+ 	$('#objarr').on('click', function(){
+		fetch('jobarr.jsp')
+		.then(function(response){
+			console.log("response", response);
+			if(!response.ok){
+				throw new Error(`오류발생 : ${response.status}`);
+			}
+			return response.json(); // 결과를 json으로 받음
+		})
+		.then(function(data){
+			//data는 결과를 text로 받은 변수
+			console.log("data", data);
+			let str = "";
+			$.each(data, function(){
+				str += `<p>이름 : ${this.name} </p>
+					<p>주소 : ${this.addr}</p>
+					<p>전화번호 : ${this.tel}</p><hr color="gray">`;
+			})
+			$('#result4').html(str);
+		})
+	}) 
+}
+</script>
+</head>
+<body>
+
+	<div class="box">
+		<h3></h3>
+		<input type="button" value="text" id="text"> 
+		<input type="button" value="obj" id="obj"> 
+		<input type="button" value="arr" id="arr"> 
+		<input type="button" value="objarr" id="objarr"> 
+		
+		<br> <br>
+
+	<div class="res">
+		<div id="result1"></div>
+		<div id="result2"></div>
+		<div id="result3"></div>
+		<div id="result4"></div>
+	</div>
+	</div>
+</body>
+</html>

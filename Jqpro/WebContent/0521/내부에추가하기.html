@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../CSS/public.css">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://localhost/Jqpro/js/jquery-3.7.1.js"></script>
+<script>
+	const arr = [ "image.1.jpg", "image.2.jpg", "image.3.jpg", "image.4.jpg",
+			"image.5.jpg", "image.6.jpg", "image.7.jpg" ]
+
+	$(function() {
+		$('#btn1').on('click', function() {
+
+			ran = parseInt(Math.random() * arr.length);
+
+			// 이미지 객체 (요소) 생성
+			vimg = $('<img>', {
+				"src" : `../images/${arr[ran]}`,
+				"alt" : arr[ran]
+			})
+
+			// vimg.appendTo($('#result1'));
+			$('#result1').append(vimg);
+		})
+		
+		$('#btn2').on('click', function() {
+			ran = parseInt(Math.random() * arr.length);
+
+			// 이미지 객체 (요소) 생성
+			vimg = $('<img>', {
+				"src" : `../images/${arr[ran]}`,
+				"alt" : arr[ran]
+			})
+
+			// vimg.prependTo($('#result1'));
+			$('#result2').prepend(vimg);
+
+		})
+	})
+</script>
+</head>
+<body>
+
+	<div class="box">
+		<h3>새로운 이미지를 추가한다</h3>
+		<input type="button" value="append" id="btn1"> 
+		<input type="button" value="prepend" id="btn2">
+		<br> <br>
+
+		<div id="result1">
+			<p>이미지 추가하기 - 뒤로 - append</p>
+		</div>
+		<div id="result2">
+			<p>이미지 추가하기 - 앞으로 - prepend</p>
+		</div>
+	</div>
+</body>
+</html>

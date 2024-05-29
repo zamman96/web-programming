@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../CSS/public.css">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://localhost/Jqpro/js/jquery-3.7.1.js"></script>
+<script>
+
+$(function(){
+	$('#btnview').on('click',function(){
+		// 입력한 모든 정보를 가져온다 - val()
+		let str="";
+		str+=`이름 : ${$('#user').val()} <br>
+			성별 : ${$('.gend:checked').val()}<br><br>
+			<소개> <br> ${$('#intro').val().replace(/\n/g,"<br>")}<br><br>
+			직업 : ${$('#work option:selected').text()}`;
+			
+		$('#result').html(str);
+	})
+	
+	
+	$('#btnchange').on('click',function(){
+		let name = prompt("이름을 입력하세요");
+		$('#user').val(name);
+	})
+})
+</script>
+</head>
+<body>
+
+	<div class="box">
+		<h3></h3>
+		<div id="result1">
+			<form>
+				<label for="user">이름</label> 
+				<input type="text" id="user" value="korea"><br> 
+				<label>성별</label> 
+				<input type="radio" id="gend " class="gend" name="gend" value="남자" checked>남자
+				<input type="radio" id="gend " class="gend" name="gend" value="여자">여자<br>
+				<label for="intro">소개</label>
+				<textarea id="intro" cols="40" rows="4"></textarea>
+				<br> <label for="work">직업</label> 
+				<select id="work">
+					<option value="programmer">프로그래머</option>
+					<option value="progammer">프로게이머</option>
+					<option value="whitehand">백수</option>
+				</select><br>
+				<button id="btnview" type="button">조사하기</button>		<!-- submit -->
+				<!-- prompt로 이름을 입력받아 user요소에 출력-->
+				<button type="button" id="btnchange">이름변경</button>
+			</form>
+		</div>
+		
+		<div id="result"></div>
+	</div>
+</body>
+</html>

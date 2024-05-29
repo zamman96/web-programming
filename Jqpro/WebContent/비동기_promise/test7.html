@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../CSS/public.css"> 
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://localhost/Jqpro/js/jquery-3.7.1.js"></script>
+<script>
+function login(username){
+	return new Promise ((resolve, reject)=>{
+		setTimeout( ()=>{ 
+			if(username){
+				resolve(username); 
+			}else{
+				reject(new Error("name을 입력"));
+			}
+			}, 2000);
+	})
+}
+function addToCart(product){
+	return new Promise ((resolve, reject)=>{
+		setTimeout( ()=>{ 
+			if(product){
+				resolve(product); 
+			}else{
+				reject(new Error("상품이 없습니다"));
+			}
+			}, 2000);
+	})
+}
+function makePayment(cardNo, product){
+	return new Promise ((resolve, reject)=>{
+		setTimeout( ()=>{ 
+			if(cardNo.length!=12){
+				reject(new Error("잘못된 카드번호"))
+				return;
+			} 
+			if(!product){
+				reject(new Error("상품이 없습니다"));
+				return;
+			}
+			resolve(product); 
+			}, 2000);
+	})
+}
+/* 
+login('김은대')
+.then((user)=>{
+	console.log(`${user}님 안녕하세요`);
+})
+.catch((err)=>{
+	console.log(err);
+})
+
+addToCart("딸기")
+.then((prod)=>{
+	console.log(`${prod}를 장바구니에 담았습니다`);
+})
+.catch((err)=>{
+	console.log(err);
+})
+
+// then에서는 하나의 변수만 입력받을 수 있음
+makePayment('123456789123','딸기')
+.then(function(prod){
+	console.log(`${prod}를 구매했습니다`);
+	})
+.catch((err)=>{
+	console.log(err);
+})
+ */
+// 전체 실행
+login('김은대')
+.then(user => {
+	console.log(`${user}님 안녕하세요`);
+	return addToCart("딸기");
+})
+.then((prod)=>{
+	console.log(`${prod}를 장바구니에 담았습니다`);
+	return makePayment('123456789123','딸기');
+})
+.then((prod)=>{
+	console.log(`${prod}를 구매했습니다`);
+	})
+.catch((err)=>{
+	console.log(err);
+})
+
+</script>
+</head>
+<body>
+
+	<div class="box">
+		<h3></h3>
+		<input type="button" value="확인" id="btn1"> <br> <br>
+
+		<div id="result1"></div>
+	</div>
+</body>
+</html>
