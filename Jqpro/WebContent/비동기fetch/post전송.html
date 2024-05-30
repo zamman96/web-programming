@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../CSS/public.css"> 
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://localhost/Jqpro/js/jquery-3.7.1.js"></script>
+<script>
+
+const createFn = () =>{
+	let vid = $('#id').val();
+	let vname = $('#name').val();
+	let vemail = $('#email').val();
+	fetch("params.jsp",{
+		method : "POST",
+		headers : {
+		"Content-type" : "application/x-www-form-urlencoded" // 직렬화X
+		},
+		body : "id="+vid+"&name="+vname+"&email="+vemail
+	})
+	.then(function(resp){
+		console.log(resp)
+		if(resp.ok)	return resp.json();
+		else throw new Error(resp.statusText)
+	})
+	.then(function(data){
+		res = `아이디 : ${data.id}<br>
+		이름 : ${data.name}<br>
+		메일 : ${data.email}`;
+		$('#result1').html(res);
+	})
+}
+
+// 직렬화하여 전송하는 함수
+// JSON.stringify() : 자바스크립트 객체를 json문자열로 직렬화
+const createFnSeri = () =>{
+	let vid = $('#id').val();
+	let vname = $('#name').val();
+	let vemail = $('#email').val();
+	fetch("paramseri.jsp",{
+		method : "POST",
+		headers : {
+			"Content-type" : "application/json;charset=utf-8" // json 직렬화
+		},
+		body : JSON.stringify({id : vid, name : vname, email : vemail}) // json
+	})
+	.then(function(resp){
+		console.log(resp)
+		if(resp.ok)	return resp.json();
+		else throw new Error(resp.statusText)
+	})
+	.then(function(data){
+		res = `아이디 : ${data.id}<br>
+			이름 : ${data.name}<br>
+			메일 : ${data.email}`;
+			$('#result2').html(res);
+	})
+}
+
+$(function(){
+	// 파라미터 전송
+	$('#send').on('click',createFn);
+	// 직렬화 전송
+	$('#serisend').on('click',createFnSeri);
+	$('#btn').on('click',createFn1);
+})
+</script>
+</head>
+<body>
+
+	<div class="box">
+		<h3></h3>
+		<form>
+			<input placeholder="아이디" name="id" id="id"><br>
+			<input placeholder="이름" name="name" id="name"><br>
+			<input placeholder="이메일" name="email" id="email"><br>
+			
+			<input type="button" value="전송" id="send">
+			<input type="button" value="직렬화전송" id="serisend">
+		</form>		
+		<br> <br>
+		<input type="button" value="전송" id="btn">
+
+		<div id="result1"></div>
+		<div id="result2"></div>
+	</div>
+</body>
+</html>
