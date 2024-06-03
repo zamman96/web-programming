@@ -43,4 +43,10 @@ public class MemberServiceImpl implements IMemberService {
 		return dao.insertMember(vo);
 	}
 
+	@Override
+	public MemberVO login(MemberVO vo) {
+		// TODO Auto-generated method stub
+		return dao.login(vo);
+	}
+
 }

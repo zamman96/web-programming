@@ -39,4 +39,6 @@ public interface IMemberService {
 	 * @return 작업 성공 1
 	 */
 	public int insertMember(MemberVO vo);
+	
+	public MemberVO login(MemberVO vo);
 }

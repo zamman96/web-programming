@@ -91,4 +91,19 @@ public class MemberMybatisDaoImpl implements IMemberDao{
 		return cnt;
 	}
 
+	@Override
+	public MemberVO login(MemberVO vo) {
+		SqlSession session = null;
+		MemberVO memVo = new MemberVO();
+		try {
+			session = MyBatisUtil.getSqlSession();
+			memVo = session.selectOne("mem.login", vo);
+		} catch (Exception e) {
+			// TODO: handle exception
+		} finally {
+			if(session!=null) try {session.close();}catch(Exception e){}
+		}
+		return memVo;
+	}
+
 }

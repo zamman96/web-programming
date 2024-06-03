@@ -20,6 +20,7 @@
 			-->
 			<typeAlias type="kr.or.ddit.member.vo.MemberVO" alias="memVo"/>
 			<typeAlias type="kr.or.ddit.member.vo.ZipVO" alias="zipVo"/>
+			<typeAlias type="kr.or.ddit.borad.vo.BoardVO" alias="bVo"/>
 	</typeAliases>
 
 	<!-- DB에 연결 할 정보 설정하기 -->
@@ -42,6 +43,7 @@
 		형식) <mapper resource="경로명/파일명.xml"/>
 		 -->
 		 <mapper resource="kr/or/ddit/mybatis/mappers/member-mapper.xml"/>
+		 <mapper resource="kr/or/ddit/mybatis/mappers/board-mapper.xml"/>
 	</mappers>
 	
 </configuration>
